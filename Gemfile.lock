@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/heartcombo/simple_form.git
+  revision: 23205201a935c7e52c39549756e2ec2e2ec47793
+  specs:
+    simple_form (5.1.0)
+      actionpack (>= 5.2)
+      activemodel (>= 5.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -79,6 +87,10 @@ GEM
     childprocess (4.1.0)
     concurrent-ruby (1.1.10)
     crass (1.0.6)
+    dotenv (2.7.6)
+    dotenv-rails (2.7.6)
+      dotenv (= 2.7.6)
+      railties (>= 3.2)
     erubi (1.10.0)
     ffi (1.15.5)
     globalid (1.0.0)
@@ -210,6 +222,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
+  dotenv-rails
   jbuilder (~> 2.7)
   listen (~> 3.3)
   pg (~> 1.1)
@@ -218,6 +231,7 @@ DEPENDENCIES
   rails (~> 6.1.6)
   sass-rails (>= 6)
   selenium-webdriver (>= 4.0.0.rc1)
+  simple_form!
   spring
   turbolinks (~> 5)
   tzinfo-data
