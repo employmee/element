@@ -1,1 +1,16 @@
 // Specific CSS for your home-page
+html * {
+  font-family: 'Inter', sans-serif !important;
+
+  h1 {
+    font-weight: 700;
+  }
+
+  h2, h3, h4 {
+    font-weight: 600;
+  }
+
+  p, span {
+    font-weight: 400  ;
+  }
+}

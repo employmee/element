@@ -1,0 +1,14 @@
+.btn-gold {
+  background-color: $gold;
+  color: white;
+  text-align: center;
+  width: 100%;
+  border-radius: 50px;
+  height: 50px;
+  font-weight: 300;
+  font-size: 18px;
+}
+.btn-gold:hover {
+  background-color: $gold-hover;
+  color: white;
+}

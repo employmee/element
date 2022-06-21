@@ -1,0 +1,22 @@
+.input {
+  background-color: $beige;
+  opacity: 0.6;
+  border-radius: 50px;
+  height: 50px;
+  padding: 24px;
+}
+
+// .input:hover,
+// .input:focus,
+// .input:active {
+//   background-color: #D0CEBA !important;
+// }
+input:-webkit-autofill {
+  -webkit-box-shadow:0 0 0 50px $beige inset; /* Change the color to your own background color */
+  -webkit-text-fill-color: #333;
+}
+
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 50px $beige inset;/*your box-shadow*/
+  -webkit-text-fill-color: #333;
+}
