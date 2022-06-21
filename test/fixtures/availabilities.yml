@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_time: 2022-06-21 20:10:11
+  end_time: 2022-06-21 20:10:11
+  blocker: false
+  user: one
+
+two:
+  start_time: 2022-06-21 20:10:11
+  end_time: 2022-06-21 20:10:11
+  blocker: false
+  user: two
