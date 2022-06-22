@@ -2,11 +2,9 @@ class UsersController < ApplicationController
   before_action :select_user, only: %i[show]
 
   def index
-    # @users = User.where(role:"Teacher")
-    # I can't get ratings for each user from controller. Doing it on index.html instead. See line 27 onwards
-    # @avgRating = avgRating(@users)
     @user = User.new
-    @users = []
+    # To add condition on where teacher subject present
+    @users = User.where(role: 'Teacher')
     #search_params if params["search"].present?
     #filtered_results
   end
@@ -32,4 +30,15 @@ class UsersController < ApplicationController
   #   params[:search][:subjects].shift
   # end
 
+  # def filtered_results
+  #   params.permit(:subj_name)
+  #   if params["search"].present?
+  #     subj = Subject.all
+  #     subj.each do |s|
+  #       @users << s.user if params[:search][:subjects].include? s.title
+  #     end
+  #   else
+  #     @users = User.where(role: "Teacher")
+  #   end
+  # end
 end
