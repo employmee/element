@@ -1,5 +1,30 @@
 <div class="wrapper">
+
+  <%# Form to add subject with grades %>
   <div class="sticky">
     <h2>Add Subject</h2>
+    <%# Send form to custom bulk create mode %>
+    <form action="/score" method="post">
+      <%# Select a subject %>
+      <select id="subject" name="subject">
+        <% Subject::SUBJECTS.each do |subj| %>
+          <option><%= subj %></option>
+        <% end %>
+      </select>
+      <%# Pick options %>
+      <% Grade::GRADES.each do |grade| %>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+          <label class="form-check-label" for="flexCheckDefault">
+            <%= grade %>
+          </label>
+        </div>
+        <input type="text" placeholder="Hourly Rate" name="hourly_rate" id="<% @start_time = Time.now %>" >
+      <% end %>
+      <input type="submit" value="Play">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <%= hidden_field_tag :start_time, @start_time %>
+      <%= hidden_field_tag :letters, @letters %>
+    </form>
   </div>
 </div>
