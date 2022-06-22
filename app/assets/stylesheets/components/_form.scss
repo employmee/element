@@ -1,0 +1,19 @@
+.sticky {
+  position: sticky;
+  position: -webkit-sticky;
+  background: $white;
+  opacity: 0.9;
+  width: 450px;
+  height: 90vh;
+  top: 0px;
+  padding: 20px;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  color: black;
+  z-index: 2;
+  float: right;
+}
+.wrapper {
+  z-index:1;
+}
