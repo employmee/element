@@ -2,6 +2,8 @@
   justify-content: space-between;
   background: white;
   background-color: $dark-green;
+
+
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -15,4 +17,7 @@
   display: inline;
   color: $gold;
   margin-left: 4px;
+}
+.nav-link {
+  color: $beige !important;
 }

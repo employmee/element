@@ -20,6 +20,10 @@
   width: 400px;
   transform: translateY(80%);
 }
+.signup {
+  width: 400px;
+  transform: translateY(30%);
+}
 
 .link-gold {
   a {
@@ -32,4 +36,8 @@
   a {
     color: $light-brown;
   }
+}
+.form-control:focus {
+  border-color: $dark-green;
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
 }
