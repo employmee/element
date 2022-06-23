@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :unavailabilities
   resources :subjects
   resources :grades
+  resources :bookings
   post 'subjects/bulk', to: 'subjects#bulk'
 
   # resources :bookings, only: %i[index edit update] do
