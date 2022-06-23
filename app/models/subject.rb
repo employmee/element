@@ -7,5 +7,6 @@ class Subject < ApplicationRecord
 
   def list!
     self.listed = grades.any? # verify that subject has grades in order to list.
+    save
   end
 end

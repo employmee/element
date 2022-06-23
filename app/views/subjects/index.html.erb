@@ -11,23 +11,23 @@
     </div>
 
     <div class="row" data-controller="sortable">
-      <div id="listed" class="list-group col-6">
+      <div id="listed" class="list-group col-6" data-action="drop->sortable#updateListed">
         <% @listed_subjects.each do |listed_subj| %>
-          <div class="list-group-item">
-            <p><%= listed_subj.name %></p>
+          <div class="list-group-item" id="subject-<%= listed_subj.id %>">
+            <p id="subject-<%= listed_subj.id %>"><%= listed_subj.name %></p>
             <% listed_subj.grades.each do |grade| %>
-              <p><%= grade.name %>: $<%= grade.hourly_rate %>/hr</p>
+              <p id="subject-<%= listed_subj.id %>"><%= grade.name %>: $<%= grade.hourly_rate %>/hr</p>
             <% end %>
           </div>
         <% end %>
 
       </div>
-      <div id="unlisted" class="list-group col-6">
+      <div id="unlisted" class="list-group col-6" data-action="drop->sortable#updateUnlisted">
         <% @unlisted_subjects.each do |unlisted_subj| %>
-          <div class="list-group-item">
-            <p><%= unlisted_subj.name %></p>
+          <div class="list-group-item" id="subject-<%= unlisted_subj.id %>">
+            <p id="subject-<%= unlisted_subj.id %>"><%= unlisted_subj.name %></p>
             <% unlisted_subj.grades.each do |grade| %>
-              <p><%= grade.name %>: $<%= grade.hourly_rate %>/hr</p>
+              <p id="subject-<%= unlisted_subj.id %>"><%= grade.name %>: $<%= grade.hourly_rate %>/hr</p>
             <% end %>
           </div>
         <% end %>

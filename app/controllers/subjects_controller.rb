@@ -2,6 +2,18 @@ class SubjectsController < ApplicationController
   def index
     @listed_subjects = current_user.subjects.where(listed: true)
     @unlisted_subjects = current_user.subjects.where(listed: false)
+
+  end
+
+  def update
+    params.permit(:id)
+    params.permit(:listed)
+    # params.require(:subject).permit(:listed)
+    # params.require(:subject).permit(:id)
+    subject = Subject.find(params['id'])
+    subject.update(listed: params['listed'])
+    subject.save!
+
   end
 
   def bulk
@@ -27,6 +39,10 @@ class SubjectsController < ApplicationController
   end
 
   private
+
+  def subjects_params
+    params.require(:subject).permit(:name, :listed)
+  end
 
   def create_grades(grade, subject)
     if params[grade] == "on"
