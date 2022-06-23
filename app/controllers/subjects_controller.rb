@@ -22,6 +22,7 @@ class SubjectsController < ApplicationController
     Grade::GRADES.each { |grade| create_grades(grade, new_subject) }
     # List the subject created
     new_subject.list!
+    new_subject.save
     redirect_to subjects_path
   end
 

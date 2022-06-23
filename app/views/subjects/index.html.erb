@@ -1,31 +1,41 @@
 <div class="row">
   <div class="col-8 pad-20 px-70">
-  <h2>Your Subjects</h2>
-  <div class="row">
-    <div class="col-6">
-      <h5>Listed</h5>
+    <h2 class="text-brown mb-4">Your Subjects</h2>
+    <div class="row">
+      <div class="col-6">
+        <h5>Listed</h5>
+      </div>
+      <div class="col-6">
+        <h5>Not Listed</h5>
+      </div>
     </div>
-    <div class="col-6">
-      <h5>Not Listed</h5>
+
+    <div class="row" data-controller="sortable">
+      <div id="listed" class="list-group col-6">
+        <% @listed_subjects.each do |listed_subj| %>
+          <div class="list-group-item">
+            <p><%= listed_subj.name %></p>
+            <% listed_subj.grades.each do |grade| %>
+              <p><%= grade.name %>: $<%= grade.hourly_rate %>/hr</p>
+            <% end %>
+          </div>
+        <% end %>
+
+      </div>
+      <div id="unlisted" class="list-group col-6">
+        <% @unlisted_subjects.each do |unlisted_subj| %>
+          <div class="list-group-item">
+            <p><%= unlisted_subj.name %></p>
+            <% unlisted_subj.grades.each do |grade| %>
+              <p><%= grade.name %>: $<%= grade.hourly_rate %>/hr</p>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-6">
-      <% @listed_subjects.each do |listed_subj| %>
-        <%= listed_subj.name %>
-      <% end %>
-    </div>
-    <div class="col-6">
-      <% @unlisted_subjects.each do |unlisted_subj| %>
-        <div class="row">
-          <%= unlisted_subj.name %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-
-  </div>
+  <%# -------------- FORM FOR NEW SUBJ AND GRADES ----------------- %>
   <div class="col-4 white">
     <div class="my-3 mx-4">
       <h2 class="text-brown my-4">Add Subject</h2>

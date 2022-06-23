@@ -6,6 +6,6 @@ class Subject < ApplicationRecord
   validates :name, presence: true, inclusion: { in: SUBJECTS }
 
   def list!
-    grades.any?
+    self.listed = grades.any? # verify that subject has grades in order to list.
   end
 end

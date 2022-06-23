@@ -231,6 +231,8 @@ GEM
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
     semantic_range (3.0.0)
+    sortablejs-rails (1.15.0)
+      rails (>= 6.0.0, < 8)
     spring (4.0.0)
     sprockets (4.0.3)
       concurrent-ruby (~> 1.0)
@@ -298,6 +300,7 @@ DEPENDENCIES
   sass-rails (>= 6)
   selenium-webdriver (>= 4.0.0.rc1)
   simple_form!
+  sortablejs-rails (~> 1.10)
   spring
   turbolinks (~> 5)
   tzinfo-data
