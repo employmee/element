@@ -6,6 +6,17 @@
   padding: 24px;
   color: #333 !important;
 }
+.input-sm {
+  width: 150px;
+  font-size: 14px;
+  background-color: #F1F1ED;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  margin-left: 10px;
+  height: 30px;
+  padding: 6px;
+}
+
 .option {
   background-color: $dark-green;
   opacity: 0.8;
@@ -13,7 +24,19 @@
   height: 50px;
   padding-left: 24px;
 }
+.option-light {
+  background-color: $input;
+  opacity: 1;
+  border-radius: 6px;
+  height: 40px;
+  padding-left: 24px;
+  color: grey;
+}
 
+.option-light:focus {
+  -webkit-box-shadow: 0 0 0 50px $input inset;/*your box-shadow*/
+  -webkit-text-fill-color: #333;
+}
 // .input:hover,
 // .input:focus,
 // .input:active {
@@ -28,13 +51,13 @@ input:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0 50px $beige inset;/*your box-shadow*/
   -webkit-text-fill-color: #333;
 }
-select {
+.option {
   display: block;
   -webkit-box-shadow:0 0 0 50px $dark-green inset; /* Change the color to your own background color */
   -webkit-text-fill-color: $beige;
 }
 
-select:focus {
+.option:focus {
   -webkit-box-shadow: 0 0 0 50px $dark-green inset;/*your box-shadow*/
   -webkit-text-fill-color: $beige;
 }

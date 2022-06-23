@@ -1,19 +1,19 @@
-.sticky {
-  position: sticky;
-  position: -webkit-sticky;
+.white {
   background: $white;
   opacity: 0.9;
-  width: 450px;
-  height: 90vh;
-  top: 0px;
-  padding: 20px;
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
+  // padding: 20px;
   color: black;
-  z-index: 2;
-  float: right;
+  min-height: 95vh;
 }
-.wrapper {
-  z-index:1;
+.left {
+  margin-right: 450px;
+}
+.pad-20 {
+  padding: 20px;
+}
+.pad-left-12 {
+  padding-left: 12px;
+}
+.pad-left-50 {
+  padding-left: 50px;
 }

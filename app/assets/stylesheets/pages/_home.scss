@@ -16,3 +16,19 @@ html * {
     font-weight: 400  ;
   }
 }
+.text-light {
+  color: $text-light;
+}
+.text-brown {
+  color: $light-brown;
+}
+.float-right {
+  float: right;
+}
+.px-70 {
+  padding-left: 70px;
+  padding-right: 70px;
+}
+.max-w-300{
+  max-width: 300px;
+}
