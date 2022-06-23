@@ -12,6 +12,11 @@ html * {
     color: $gold;
   }
 
+  h5 {
+    font-family: 'Montserrat', sans-serif !important;
+    color: $dark-green;
+  }
+
   p, span {
     font-weight: 400  ;
   }
@@ -22,6 +27,9 @@ html * {
 .text-brown {
   color: $light-brown;
 }
+.text-green {
+  color: $dark-green;
+}
 .float-right {
   float: right;
 }
@@ -31,4 +39,7 @@ html * {
 }
 .max-w-300{
   max-width: 300px;
+}
+.pl-12 {
+  padding-left: 12px;
 }

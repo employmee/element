@@ -11,23 +11,23 @@
     </div>
 
     <div class="row" data-controller="sortable">
-      <div id="listed" class="list-group col-6" data-action="drop->sortable#updateListed">
+      <div id="listed" class="list-group col-6 pl-12" data-action="drop->sortable#updateListed">
         <% @listed_subjects.each do |listed_subj| %>
           <div class="list-group-item" id="subject-<%= listed_subj.id %>">
-            <p id="subject-<%= listed_subj.id %>"><%= listed_subj.name %></p>
+            <p class="list-header" id="subject-<%= listed_subj.id %>"><%= listed_subj.name %></p>
             <% listed_subj.grades.each do |grade| %>
-              <p id="subject-<%= listed_subj.id %>"><%= grade.name %>: $<%= grade.hourly_rate %>/hr</p>
+              <p class="list-text" id="subject-<%= listed_subj.id %>"><%= grade.name %>:    $<%= grade.hourly_rate.round(2) %>/h</p>
             <% end %>
           </div>
         <% end %>
 
       </div>
-      <div id="unlisted" class="list-group col-6" data-action="drop->sortable#updateUnlisted">
+      <div id="unlisted" class="list-group col-6 pl-12" data-action="drop->sortable#updateUnlisted">
         <% @unlisted_subjects.each do |unlisted_subj| %>
           <div class="list-group-item" id="subject-<%= unlisted_subj.id %>">
-            <p id="subject-<%= unlisted_subj.id %>"><%= unlisted_subj.name %></p>
+            <p class="list-header" id="subject-<%= unlisted_subj.id %>"><%= unlisted_subj.name %></p>
             <% unlisted_subj.grades.each do |grade| %>
-              <p id="subject-<%= unlisted_subj.id %>"><%= grade.name %>: $<%= grade.hourly_rate %>/hr</p>
+              <p class="list-text" id="subject-<%= unlisted_subj.id %>"><%= grade.name %>: $<%= grade.hourly_rate.round(2) %>/h</p>
             <% end %>
           </div>
         <% end %>
@@ -38,7 +38,7 @@
   <%# -------------- FORM FOR NEW SUBJ AND GRADES ----------------- %>
   <div class="col-4 white">
     <div class="my-3 mx-4">
-      <h2 class="text-brown my-4">Add Subject</h2>
+      <h4 class="text-green my-4">Add Subject</h4>
       <%# Send form to custom bulk create mode %>
       <form action="/subjects/bulk" method="post">
         <%# Select a subject %>
