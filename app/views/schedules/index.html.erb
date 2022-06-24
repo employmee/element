@@ -1,4 +1,4 @@
-<div class="d-flex">
+<div class="d-flex" data-controller="availability">
   <div class="left-30 schedule d-flex justify-content-center">
     <div class="fixed">
       <h4 class="text-wine my-4">Working Hours</h4>
@@ -8,12 +8,16 @@
             <p><%= sched.start_time.strftime("%I:%M %p") %> to <%= sched.end_time.strftime("%I:%M %p") %></p>
           </div>
         <% end %>
-        <button class="btn-square"><i class="fa-solid fa-plus" style="color:white"></i></button>
+      <p class="link" data-action="click->availability#displayScheduleForm"><% if @schedules.blank? %>
+        Add availability
+      <% else %>
+        Edit availability
+      <% end %></p>
     </div>
   </div>
   <div class="right-70">
-    <h3 class="text-green my-4 center">Your Schedule</h3>
-    <div class="calendar-container">
+    <h3 class="text-green center" style="display:inline">Your Schedule</h3><button class="btn-square center"><i class="fa-solid fa-plus" style="color:white"></i></button>
+    <div class="calendar-container mt-4">
       <% if @month_availability_slot %>
         <%= month_calendar(events: @month_availability_slot, end_attribute: :end_time) do |date, availabilities| %>
           <%= date %>
@@ -43,10 +47,14 @@
         <input id="<%= day %> start" class="datepicker" name="<%= day %> start" value="0700"><span>to</span>
         <span style="float: right;"><input id="<%= day %> end" class="datepicker" name="<%= day %> end" value="2300"></span></p>
       <% end %>
-      <input type="submit" value="Confirm" class="btn-brown-sm">
+      <div class="d-flex justify-content-between align-items-center">
+        <span data-action="click->availability#hideForm" style="text-decoration:underline;margin-top:12px;font-weight:200">Close</span>
+        <input type="submit" value="Confirm" class="btn-brown-sm">
+      </div>
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
     </form>
   </div>
+
   <%# Form for new availability %>
   <div id="overlay-right">
     <h4 class="mt-2 center">Add availabilities</h4>

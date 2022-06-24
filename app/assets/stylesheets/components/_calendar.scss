@@ -114,9 +114,17 @@
 }
 .right-70 {
   float: right;
-  padding-top: 20px;
+  padding-top: 40px;
   margin-right: 60px;
   flex: 1;
+}
+.link {
+  text-decoration: underline;
+  font-family: "montserrat",sans-serif;
+  float: right;
+}
+.link:hover {
+  color: $wine;
 }
 .fr {
   float: right;
@@ -134,7 +142,7 @@
   cursor: pointer; /* Add a pointer on hover */
   padding: 20px 60px;
   animation: slideleft 800ms forwards;
-  animation-delay: 1s;
+  animation-delay: 200ms;
   overflow: auto;
   max-width: 350px;
 }
@@ -156,7 +164,7 @@
   cursor: pointer; /* Add a pointer on hover */
   padding: 20px 60px;
   animation: slideright 800ms forwards;
-  animation-delay: 1s;
+  animation-delay: 200ms;
   overflow: auto;
   max-width: 350px;
 }
