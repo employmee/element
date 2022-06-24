@@ -131,9 +131,10 @@
   background-color: rgba(249,249,246,1); /* Black background with opacity */
   z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
   cursor: pointer; /* Add a pointer on hover */
-  padding: 40px;
+  padding: 20px 60px;
   animation: slideleft 800ms forwards;
   animation-delay: 1s;
+  overflow: auto;
 }
 
 @keyframes slideleft {
@@ -151,11 +152,18 @@
   background-color: rgba(250,250,247,0.9); /* Black background with opacity */
   z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
   cursor: pointer; /* Add a pointer on hover */
-  padding: 40px;
+  padding: 20px 60px;
   animation: slideright 800ms forwards;
   animation-delay: 1s;
+  overflow: auto;
 }
 @keyframes slideright {
   100% { right: 0; }
 
+}
+#datepicker {
+  height:25px;
+  font-weight:300;
+  width:100px;
+  text-align: center;
 }

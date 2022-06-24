@@ -25,20 +25,25 @@
   </div>
   <%# Form for set work hours %>
   <div id="overlay-left">
-    <h4 class="text-brown mt-4 fw-300 center">Set working hours</h4>
-    <form action="/schedules" method="post">
+    <h4 class="text-brown mt-2 center">Set working hours</h4>
+    <form class="sched-form" action="/schedules" method="post">
         <%# Select a subject %>
       <% Schedule::DAYS.each do |day| %>
-        <label for="<%= day %>" class="mb-2"><%= day %></label>
+        <p class="list-header"><%= day %></p>
+        <p><label for="<%= day %> start" class="mb-2">Start Time</label>
+        <span style="float: right;"><input id="datepicker" name="<%= day %> start" value="0700"></span></p>
+        <p><label for="<%= day %> end" class="mb-2">End Time</label>
+        <span style="float: right;"><input id="datepicker" name="<%= day %> end" value="2300"></span></p>
 
-        <input type="submit" value="Add" class="btn-brown-sm">
-        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
         <%#= hidden_field_tag :start_time, @start_time %>
         <%#= hidden_field_tag :letters, @letters %>
-      </form>
+      <% end %>
+      <input type="submit" value="Add" class="btn-brown-sm">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    </form>
   </div>
   <%# Form for new availability %>
   <div id="overlay-right">
-    <h4 class="text-brown mt-4 fw-300 center">Add availabilities</h4>
+    <h4 class="text-brown mt-2 center">Add availabilities</h4>
   </div>
 </div>

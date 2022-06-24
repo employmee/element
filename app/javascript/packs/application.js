@@ -8,19 +8,11 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+// app/javascript/packs/application.js
+import { initFlatpickr } from "../plugins/flatpickr";
 
-// let listed = document.getElementById('listed');
-// let unlisted = document.getElementById('unlisted');
-// Sortable.create(listed, {
-//   group: 'subjects', // set both lists to same group
-//   animation: 150
-// });
-
-// Sortable.create(unlisted, {
-//   group: 'subjects',
-//   animation: 150
-// });
-
+initFlatpickr();
+console.log(initFlatpickr)
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
