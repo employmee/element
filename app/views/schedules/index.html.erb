@@ -1,13 +1,18 @@
-<div class="container mx-0">
-  <div class="left-30">
-    <h4 class="text-brown my-4">Working Hours</h4>
-      <% @schedules.each do |sched| %>
-        <p><%= sched.day %></p>
-        <p><%= sched.start_time.strftime("%I:%M %p") %> to <%= sched.end_time.strftime("%I:%M %p") %></p>
-      <% end %>
+<div class="d-flex">
+  <div class="left-30 schedule d-flex justify-content-center">
+    <div class="fixed">
+      <h4 class="text-wine my-4">Working Hours</h4>
+        <% @schedules.each do |sched| %>
+          <div class="mb-3">
+            <p class="fw-500"><%= sched.day %></p>
+            <p><%= sched.start_time.strftime("%I:%M %p") %> to <%= sched.end_time.strftime("%I:%M %p") %></p>
+          </div>
+        <% end %>
+        <button class="btn-square"><i class="fa-solid fa-plus" style="color:white"></i></button>
+    </div>
   </div>
   <div class="right-70">
-    <h3 class="text-green my-4">Your Schedule</h3>
+    <h3 class="text-green my-4 center">Your Schedule</h3>
     <div class="calendar-container">
       <% if @month_availability_slot %>
         <%= month_calendar(events: @month_availability_slot, end_attribute: :end_time) do |date, availabilities| %>

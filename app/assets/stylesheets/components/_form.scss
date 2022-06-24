@@ -3,7 +3,15 @@
   opacity: 0.9;
   // padding: 20px;
   color: black;
-  min-height: 95vh;
+  height: 100%;
+  right: 0px;
+  width: 390px;
+  position: fixed;
+}
+.left-white {
+  margin-right: 390px;
+  float: left;
+  flex: 1;
 }
 .left {
   margin-right: 450px;

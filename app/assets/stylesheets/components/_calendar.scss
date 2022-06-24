@@ -108,21 +108,22 @@
   }
 }
 .left-30 {
-  width: 30%;
+  width: 290px;
   float: left;
   padding: 20px;
 }
 .right-70 {
-  width: 70%;
   float: right;
-  padding: 20px;
+  padding-top: 20px;
+  margin-right: 60px;
+  flex: 1;
 }
 .fr {
   float: right;
 }
 #overlay-left {
   position: fixed; /* Sit on top of the page content */
-  //display: none; /* Hidden by default */
+  display: none; /* Hidden by default */
   width: 30%; /* Full width (cover the whole page) */
   height: 100%; /* Full height (cover the whole page) */
   top: 56px;
@@ -168,4 +169,11 @@
   font-weight:300;
   width: 100px;
   text-align: center;
+}
+.schedule {
+  p {
+    margin-bottom: 0.5rem;
+    color: $text-light;
+    font-weight: 300;
+  }
 }
