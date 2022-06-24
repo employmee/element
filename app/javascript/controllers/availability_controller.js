@@ -19,8 +19,13 @@ export default class extends Controller {
     form.style.display = "block";
   }
 
-  hideForm() {
+  hideScheduleForm() {
     const form = document.getElementById("overlay-left")
     form.style.display = "none";
+  }
+
+  displayAvailForm() {
+    const form = document.getElementById("overlay-right")
+    form.style.display = "block";
   }
 }

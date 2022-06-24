@@ -13,7 +13,8 @@ class Availability < ApplicationRecord
   end
 
   def time
-    "#{start_time.strftime('%I:%M %p')} - #{end_time.strftime('%I:%M %p')}"
+    # "#{start_time.strftime('%I:%M %p')} - #{end_time.strftime('%I:%M %p')}"
+    "#{start_time.strftime('%H:%M')} - #{end_time.strftime('%H:%M')}"
   end
 
   def multi_days?

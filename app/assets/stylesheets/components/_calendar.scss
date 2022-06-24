@@ -30,9 +30,9 @@
   border-radius: 4px;
   background: #5bc48c;
   transition: background 0.3s ease;
-  font-size: 12px;
+  font-size: 16px;
   text-align: center;
-
+  margin: 6px 0;
   p {
     margin: 0px;
   }
@@ -132,12 +132,12 @@
 #overlay-left {
   position: fixed; /* Sit on top of the page content */
   display: none; /* Hidden by default */
-  width: 30%; /* Full width (cover the whole page) */
+  //width: 30%; /* Full width (cover the whole page) */
   height: 100%; /* Full height (cover the whole page) */
   top: 56px;
   left: -900px;
   bottom: 0;
-  background-color: rgba(249,249,246,1); /* Black background with opacity */
+  background-color: rgba(250,250,247,0.9); /* Black background with opacity */
   z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
   cursor: pointer; /* Add a pointer on hover */
   padding: 20px 60px;
@@ -180,7 +180,7 @@
 }
 .schedule {
   p {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0;
     color: $text-light;
     font-weight: 300;
   }

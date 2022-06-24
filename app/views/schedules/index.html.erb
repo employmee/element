@@ -1,4 +1,5 @@
 <div class="d-flex" data-controller="availability">
+  <%# Work Hour contents %>
   <div class="left-30 schedule d-flex justify-content-center">
     <div class="fixed">
       <h4 class="text-wine my-4">Working Hours</h4>
@@ -15,8 +16,11 @@
       <% end %></p>
     </div>
   </div>
+
+  <%# Calendar content showing availabilities/unavailabilities %>
   <div class="right-70">
-    <h3 class="text-green center" style="display:inline">Your Schedule</h3><button class="btn-square center"><i class="fa-solid fa-plus" style="color:white"></i></button>
+    <h3 class="text-green center" style="display:inline">Your Schedule</h3>
+    <button data-action="click->availability#displayAvailForm" class="btn-square center"><i class="fa-solid fa-plus" style="color:white"></i></button>
     <div class="calendar-container mt-4">
       <% if @month_availability_slot %>
         <%= month_calendar(events: @month_availability_slot, end_attribute: :end_time) do |date, availabilities| %>
@@ -39,7 +43,7 @@
   <%# Form for set work hours %>
   <div id="overlay-left">
     <form class="sched-form" action="/schedules/bulk" method="post">
-      <h4 class="center mb-3">Set working hours</h4>
+      <h4 class="center mt-3 mb-3">Set working hours</h4>
       <%# start and end time for each day %>
       <% Schedule::DAYS.each do |day| %>
         <p class="list-header"><%= day %></p>
@@ -48,7 +52,7 @@
         <span style="float: right;"><input id="<%= day %> end" class="datepicker" name="<%= day %> end" value="2300"></span></p>
       <% end %>
       <div class="d-flex justify-content-between align-items-center">
-        <span data-action="click->availability#hideForm" style="text-decoration:underline;margin-top:12px;font-weight:200">Close</span>
+        <span data-action="click->availability#hideScheduleForm" style="text-decoration:underline;margin-top:12px;font-weight:200">Close</span>
         <input type="submit" value="Confirm" class="btn-brown-sm">
       </div>
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
@@ -57,6 +61,6 @@
 
   <%# Form for new availability %>
   <div id="overlay-right">
-    <h4 class="mt-2 center">Add availabilities</h4>
+    <h4 class="mt-3 center">Add availabilities</h4>
   </div>
 </div>
