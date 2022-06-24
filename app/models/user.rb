@@ -9,8 +9,8 @@ class User < ApplicationRecord
   has_many :subjects, dependent: :destroy
   has_many :grades, through: :subjects
   has_many :bookings
-  # has_many :availabilities, dependent: :destroy
-  # has_many :unavailabilities, dependent: :destroy
+  has_many :availabilities, dependent: :destroy
+  has_many :schedules, dependent: :destroy
   has_one_attached :photo
 
   validates :email, presence: true

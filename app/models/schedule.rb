@@ -1,4 +1,4 @@
-class Unavailability < ApplicationRecord
+class Schedule < ApplicationRecord
   DAYS = %w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday]
 
   belongs_to :user

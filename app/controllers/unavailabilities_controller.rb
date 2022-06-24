@@ -1,2 +1,0 @@
-class UnavailabilitiesController < ApplicationController
-end

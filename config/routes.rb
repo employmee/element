@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root to: 'users#index'
 
   resources :availabilities
-  resources :unavailabilities
+  resources :schedules
   resources :subjects
   resources :grades
   resources :bookings

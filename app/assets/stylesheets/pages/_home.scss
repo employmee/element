@@ -1,7 +1,6 @@
 // Specific CSS for your home-page
 html * {
   font-family: 'Inter', sans-serif !important;
-
   h1 {
     font-weight: 700;
     color: $gold;
@@ -21,6 +20,9 @@ html * {
     font-weight: 400  ;
   }
 }
+body {
+  padding-top: 56px;
+}
 .text-light {
   color: $text-light;
 }
@@ -33,6 +35,9 @@ html * {
 .float-right {
   float: right;
 }
+.fw-300 {
+  font-weight: 300;
+}
 .px-70 {
   padding-left: 70px;
   padding-right: 70px;
@@ -42,4 +47,7 @@ html * {
 }
 .pl-12 {
   padding-left: 12px;
+}
+.center {
+  text-align: center;
 }

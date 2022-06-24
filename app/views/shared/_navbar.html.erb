@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky">
   <div class="container-fluid">
     <%= link_to "#", class: "navbar-brand" do %>
       <%= image_tag "books-stack-of-three.png", style: 'height: 24px;width:24px; margin: 0;display:inline;' %>
@@ -17,7 +17,7 @@
               <%= link_to "My Subjects", subjects_path, class: "nav-link" %>
             </li>
             <li class="nav-item mx-1 active">
-              <%= link_to "My Schedule", availabilities_path, class: "nav-link" %>
+              <%= link_to "My Schedule", schedules_path, class: "nav-link" %>
             </li>
             <li class="nav-item mx-1">
               <%= link_to "My Bookings", bookings_path, class: "nav-link" %>

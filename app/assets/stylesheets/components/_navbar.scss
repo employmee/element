@@ -2,8 +2,8 @@
   justify-content: space-between;
   background: white;
   background-color: $dark-green;
-
-
+  overflow: hidden;
+  height: 56px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -20,4 +20,9 @@
 }
 .nav-link {
   color: $beige !important;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
 }

@@ -25,10 +25,20 @@
   </div>
   <%# Form for set work hours %>
   <div id="overlay-left">
-    <h4 class="text-brown mt-5">Set working hours</h4>
+    <h4 class="text-brown mt-4 fw-300 center">Set working hours</h4>
+    <form action="/schedules" method="post">
+        <%# Select a subject %>
+      <% Schedule::DAYS.each do |day| %>
+        <label for="<%= day %>" class="mb-2"><%= day %></label>
+
+        <input type="submit" value="Add" class="btn-brown-sm">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <%#= hidden_field_tag :start_time, @start_time %>
+        <%#= hidden_field_tag :letters, @letters %>
+      </form>
   </div>
   <%# Form for new availability %>
   <div id="overlay-right">
-    <h4 class="text-brown mt-5">Add availabilities</h4>
+    <h4 class="text-brown mt-4 fw-300 center">Add availabilities</h4>
   </div>
 </div>
