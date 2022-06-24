@@ -1,3 +1,34 @@
-<div class="container">
-<h1>hello</h1>
+<div class="container mx-0">
+  <div class="left-30">
+    <h4 class="text-brown my-4">Working Hours</h4>
+  </div>
+  <div class="right-70">
+    <h3 class="text-green my-4">Your Schedule</h3>
+    <div class="calendar-container">
+      <% if @month_availability_slot %>
+        <%= month_calendar(events: @month_availability_slot, end_attribute: :end_time) do |date, availabilities| %>
+          <%= date %>
+          <% availabilities.each do |availability| %>
+            <div id="<%= availability.id %>" class="<%= availability.blocker ? 'month_booking' : 'month_available' %>" data-availability-target="slot" data-action="click->availability#selectAvailsMonth">
+              <small><%= availability.time unless availability.multi_days? %></small>
+            </div>
+          <% end %>
+        <% end %>
+      <!-- If no availability then show empty calendar -->
+      <% else %>
+        <%= month_calendar do |date| %>
+          <%= date %>
+        <% end %>
+      <% end %>
+    </div>
+
+  </div>
+  <%# Form for set work hours %>
+  <div id="overlay-left">
+    <h4 class="text-brown mt-5">Set working hours</h4>
+  </div>
+  <%# Form for new availability %>
+  <div id="overlay-right">
+    <h4 class="text-brown mt-5">Add availabilities</h4>
+  </div>
 </div>

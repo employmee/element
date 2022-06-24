@@ -34,6 +34,7 @@ gem "font-awesome-sass", "~> 5.6.1"
 gem 'bootstrap'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 gem 'sortablejs-rails', '~> 1.10'
+gem "simple_calendar", "~> 2.4"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
