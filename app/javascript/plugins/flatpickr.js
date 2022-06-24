@@ -2,12 +2,11 @@
 import flatpickr from "flatpickr";
 
 const initFlatpickr = () => {
-  flatpickr("#datepicker", {
+  flatpickr(".datepicker", {
     enableTime: true,
     noCalendar: true,
     dateFormat: "H:i",
     time_24hr: true,
-    static: true,
     minuteIncrement: 30
   });
 }

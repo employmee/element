@@ -1,6 +1,10 @@
 <div class="container mx-0">
   <div class="left-30">
     <h4 class="text-brown my-4">Working Hours</h4>
+      <% @schedules.each do |sched| %>
+        <p><%= sched.day %></p>
+        <p><%= sched.start_time.strftime("%I:%M %p") %> to <%= sched.end_time.strftime("%I:%M %p") %></p>
+      <% end %>
   </div>
   <div class="right-70">
     <h3 class="text-green my-4">Your Schedule</h3>
@@ -25,25 +29,21 @@
   </div>
   <%# Form for set work hours %>
   <div id="overlay-left">
-    <h4 class="text-brown mt-2 center">Set working hours</h4>
-    <form class="sched-form" action="/schedules" method="post">
-        <%# Select a subject %>
+    <form class="sched-form" action="/schedules/bulk" method="post">
+      <h4 class="center mb-3">Set working hours</h4>
+      <%# start and end time for each day %>
       <% Schedule::DAYS.each do |day| %>
         <p class="list-header"><%= day %></p>
-        <p><label for="<%= day %> start" class="mb-2">Start Time</label>
-        <span style="float: right;"><input id="datepicker" name="<%= day %> start" value="0700"></span></p>
-        <p><label for="<%= day %> end" class="mb-2">End Time</label>
-        <span style="float: right;"><input id="datepicker" name="<%= day %> end" value="2300"></span></p>
-
-        <%#= hidden_field_tag :start_time, @start_time %>
-        <%#= hidden_field_tag :letters, @letters %>
+        <p>
+        <input id="<%= day %> start" class="datepicker" name="<%= day %> start" value="0700"><span>to</span>
+        <span style="float: right;"><input id="<%= day %> end" class="datepicker" name="<%= day %> end" value="2300"></span></p>
       <% end %>
-      <input type="submit" value="Add" class="btn-brown-sm">
+      <input type="submit" value="Confirm" class="btn-brown-sm">
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
     </form>
   </div>
   <%# Form for new availability %>
   <div id="overlay-right">
-    <h4 class="text-brown mt-2 center">Add availabilities</h4>
+    <h4 class="mt-2 center">Add availabilities</h4>
   </div>
 </div>

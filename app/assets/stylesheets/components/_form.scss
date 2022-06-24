@@ -18,9 +18,14 @@
   padding-left: 50px;
 }
 .sched-form {
+  margin-top: 30%;
   p {
-    margin-bottom: 0;
+    margin-bottom: 0.5rem;
     font-size: 14px;
-    font-weight: 300;
+    font-weight: 500 !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: 'Montserrat', sans-serif !important;
   }
 }

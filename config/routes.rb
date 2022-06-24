@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :grades
   resources :bookings
   post 'subjects/bulk', to: 'subjects#bulk'
+  post 'schedules/bulk', to: 'schedules#bulk'
 
   # resources :bookings, only: %i[index edit update] do
   #   get :confirmation, on: :member

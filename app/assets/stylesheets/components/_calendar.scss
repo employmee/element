@@ -135,6 +135,7 @@
   animation: slideleft 800ms forwards;
   animation-delay: 1s;
   overflow: auto;
+  max-width: 350px;
 }
 
 @keyframes slideleft {
@@ -143,7 +144,7 @@
 
 #overlay-right {
   position: fixed; /* Sit on top of the page content */
-  //display: none; /* Hidden by default */
+  display: none; /* Hidden by default */
   width: 30%; /* Full width (cover the whole page) */
   height: 100%; /* Full height (cover the whole page) */
   top: 56px;
@@ -156,14 +157,15 @@
   animation: slideright 800ms forwards;
   animation-delay: 1s;
   overflow: auto;
+  max-width: 350px;
 }
 @keyframes slideright {
   100% { right: 0; }
 
 }
-#datepicker {
+.datepicker {
   height:25px;
   font-weight:300;
-  width:100px;
+  width: 100px;
   text-align: center;
 }
