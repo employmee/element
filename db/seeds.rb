@@ -5,7 +5,6 @@ Review.destroy_all
 Grade.destroy_all
 Subject.destroy_all
 Availability.destroy_all
-Unavailability.destroy_all
 User.destroy_all
 puts "cleaning finished"
 
@@ -41,14 +40,16 @@ puts "Creating Teachers..."
     description: "From #{Faker::Educator.university} teaching #{subjects.sample}",
     role: "Teacher",
     phone_number: Faker::PhoneNumber.phone_number_with_country_code,
-    password: "123123"
+    password: "123123",
+    experience: (1..10).to_a.sample
   )
   new_teacher.save!
 end
 puts "Creating subjects..."
 25.times do
   new_subject = Subject.new(
-    name: subjects.sample
+    name: subjects.sample,
+    listed: true
   )
   new_subject.user = User.all.sample
   new_subject.save!
@@ -88,15 +89,15 @@ end
 # Seed for review400 - 405
 
 #Seed for availabilities
-puts "Creating Availabilities..."
-User.where(role: 'Teacher').each do |teacher|
-  (10..50).to_a.sample.times do
-    starttime = Time.now.beginning_of_hour + num.sample.days
-    availability = Availability.new(start_time: starttime, end_time: starttime + 1.hours)
-    availability.user = teacher
-    availability.save!
-  end
-end
+# puts "Creating Availabilities..."
+# User.where(role: 'Teacher').each do |teacher|
+#   (10..50).to_a.sample.times do
+#     starttime = Time.now.beginning_of_hour + num.sample.days
+#     availability = Availability.new(start_time: starttime, end_time: starttime + 1.hours)
+#     availability.user = teacher
+#     availability.save!
+#   end
+# end
 
 puts "Creating Reviews"
 users = User.all.where(role:"Teacher")

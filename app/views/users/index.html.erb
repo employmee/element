@@ -28,7 +28,7 @@
             <%# Teacher details section %>
             <div class="teacher-details mt-2">
               <p><span style="font-weight:600">Teaches:</span> <%= teacher.listed_subjects.map{|subj|subj.name}.join(", ") %></p>
-              <p><span style="font-weight:600">Teaching Experience:</span> </p>
+              <p><span style="font-weight:600">Teaching Experience:</span> <%= teacher.experience %> years </p>
               <p><span style="font-weight:600">Hourly rate:</span> <% if teacher.min_rate == teacher.max_rate %>
                 $<%= teacher.min_rate %>
               <% else %>
