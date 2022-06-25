@@ -15,4 +15,17 @@ class User < ApplicationRecord
 
   validates :email, presence: true
   validates :role, inclusion: ROLES
+
+  def min_rate
+    grades.map(&:hourly_rate).min.round(2)
+  end
+
+  def max_rate
+    grades.map(&:hourly_rate).max.round(2)
+  end
+
+  def listed_subjects
+    #subjects.select { |subj| subj.listed == true }
+    subjects.where(listed: true)
+  end
 end
