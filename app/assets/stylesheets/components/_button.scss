@@ -14,7 +14,7 @@
   text-align: center;
   float: right;
   width: 90px;
-  border-radius: 6px;
+  border-radius: 2px;
   height: 30px;
   font-weight: 400;
   font-size: 16px;
@@ -30,5 +30,19 @@
   height: 30px;
   width: 30px;
   border-radius: 6px;
+  float: right;
+}
+.btn-red {
+  background-color: $red;
+  height: 30px;
+  border-radius: 6px;
+  float: right;
+}
+
+.btn-outline-red {
+  background-color: $body;
+  border: 2px solid $wine;
+  border-radius: 6px;
+  color: $wine;
   float: right;
 }

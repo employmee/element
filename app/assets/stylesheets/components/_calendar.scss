@@ -8,7 +8,7 @@
 }
 
 .calendar-title {
-  color: purple;
+  color: $wine;
 }
 
 .available {
@@ -37,7 +37,19 @@
     margin: 0px;
   }
 }
-
+.month_selected {
+  color: #53b480;
+  padding: 4px 4px;
+  border-radius: 4px;
+  background: #5a9274;
+  transition: background 0.3s ease;
+  font-size: 16px;
+  text-align: center;
+  margin: 6px 0;
+  p {
+    margin: 0px;
+  }
+}
 .booking {
   color: white;
   padding: 4px 4px;
@@ -69,10 +81,10 @@
   background: #53b480;
   color: white;
 }
-.month_available:hover {
-  background: #53b480;
-  color: white;
-}
+// .month_available:hover {
+//   background: #53b480;
+//   color: white;
+// }
 .booking:hover {
   background: #a52f2f;
   color: white;
@@ -94,19 +106,7 @@
     margin: 0px;
   }
 }
-.month_selected {
-  color: #53b480;
-  padding: 4px 4px;
-  border-radius: 4px;
-  background: #5a9274;
-  transition: background 0.3s ease;
-  font-size: 12px;
-  text-align: center;
 
-  p {
-    margin: 0px;
-  }
-}
 .left-30 {
   width: 290px;
   float: left;
@@ -140,7 +140,7 @@
   background-color: rgba(250,250,247,0.9); /* Black background with opacity */
   z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
   cursor: pointer; /* Add a pointer on hover */
-  padding: 20px 60px;
+  padding: 20px 50px;
   animation: slideleft 800ms forwards;
   animation-delay: 200ms;
   overflow: auto;
@@ -162,7 +162,7 @@
   background-color: rgba(250,250,247,0.9); /* Black background with opacity */
   z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
   cursor: pointer; /* Add a pointer on hover */
-  padding: 20px 60px;
+  padding: 20px 50px;
   animation: slideright 800ms forwards;
   animation-delay: 200ms;
   overflow: auto;
