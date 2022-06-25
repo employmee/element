@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   def index
     @user = User.new
     # To add condition on where teacher subject present
-    @users = User.where(role: 'Teacher')
+    @teachers = User.where(role: 'Teacher')
     #search_params if params["search"].present?
     #filtered_results
   end

@@ -1,3 +1,23 @@
-<div class="container">
-
+<div class="container my-5">
+  <div class="input-icons mb-4">
+    <i class="fa-solid fa-magnifying-glass icon" style="color:#544d40"></i><input class="search-bar">
+  </div>
+  <div class="row d-flex justify-content-between">
+    <% @teachers.each do |teacher| %>
+      <div class="col-4 my-3">
+        <div class="teacher-card">
+          <div class="d-flex justify-content-start">
+            <div>
+              <%# To replace with user's avatar %>
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-large" %>
+            </div>
+            <div class="teacher-header ms-3">
+              <h4><%= teacher.first_name %> <%= teacher.last_name %></h4>
+              <%= render 'users/ratings', teacher: teacher %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
