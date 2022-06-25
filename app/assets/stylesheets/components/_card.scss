@@ -2,10 +2,19 @@
   background-color: $white;
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-  padding: 16px;
+  padding: 20px 30px;
 }
 .teacher-header {
   h4 {
-    font-size: 24px;
+    font-size: 20px;
+  }
+}
+.star-ratings {
+  font-size: 12px;
+}
+.teacher-details {
+  p {
+    margin: 0px;
+    font-size: 14px;
   }
 }

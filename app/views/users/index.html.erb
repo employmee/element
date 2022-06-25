@@ -6,7 +6,7 @@
     <% @teachers.each do |teacher| %>
       <div class="col-4 my-3">
         <div class="teacher-card">
-          <div class="d-flex justify-content-start">
+          <div class="d-flex justify-content-start align-items-center">
             <div>
               <%# To replace with user's avatar %>
               <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-large" %>
@@ -14,7 +14,14 @@
             <div class="teacher-header ms-3">
               <h4><%= teacher.first_name %> <%= teacher.last_name %></h4>
               <%= render 'users/ratings', teacher: teacher %>
+              <span style="font-size:10px;margin:0px;">5 students | 20 lessons</span>
             </div>
+          </div>
+          <div class="teacher-details mt-2">
+            <p><span style="font-weight:600">Teaches:</span></p>
+            <p><span style="font-weight:600">Teaching Experience:</span> </p>
+            <p><span style="font-weight:600">Hourly rate:</span></p>
+            <p><span style="font-weight:600">Location:</span></p>
           </div>
         </div>
       </div>

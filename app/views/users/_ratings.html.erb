@@ -1,8 +1,9 @@
-<div class=star-ratings>
+<div class="star-ratings mb-0">
   <% if teacher.reviews.count == 0 %>
     <% (5).times do %>
     <span><i class="fa-solid fa-star" style="color:grey"></i></i></span>
     <% end %>
+    (0)
   <% else %>
     <% sum_reviews = 0 %>
     <% total_reviews = 0 %>
@@ -17,5 +18,6 @@
     <% (5-rating).times do %>
       <span><i class="fa-solid fa-star" style="color:grey"></i></i></span>
     <% end %>
+    (<%= teacher.reviews.count %>)
   <% end %>
 </div>
