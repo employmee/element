@@ -5,6 +5,11 @@
   padding: 20px 30px;
   height: 100%
 }
+.teacher-card:hover {
+  background-color: #ecece5;
+  //box-shadow: rgba(0, 0, 0, 0.35) 4px 4px 6px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
 .teacher-header {
   h4 {
     font-size: 20px;

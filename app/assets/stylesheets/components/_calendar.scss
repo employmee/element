@@ -17,7 +17,7 @@
   border-radius: 4px;
   background: #5a9274;
   transition: background 0.3s ease;
-  font-size: 14px;
+  font-size: 16px;
   text-align: center;
   margin-bottom: 4px;
   p {
@@ -56,9 +56,9 @@
   border-radius: 4px;
   background: #bc3535;
   transition: background 0.3s ease;
-  font-size: 14px;
+  font-size: 16px;
   text-align: center;
-
+  margin-bottom: 4px;
   p {
     margin: 0px;
   }
@@ -69,9 +69,9 @@
   border-radius: 4px;
   background: #bc3535;
   transition: background 0.3s ease;
-  font-size: 12px;
+  font-size: 16px;
   text-align: center;
-
+  margin: 6px 0;
   p {
     margin: 0px;
   }
@@ -89,10 +89,10 @@
   background: #a52f2f;
   color: white;
 }
-.month_booking:hover {
-  background: #a52f2f;
-  color: white;
-}
+// .month_booking:hover {
+//   background: #a52f2f;
+//   color: white;
+// }
 .selected {
   color: #53b480;
   padding: 4px 4px;
