@@ -28,4 +28,12 @@ class User < ApplicationRecord
     #subjects.select { |subj| subj.listed == true }
     subjects.where(listed: true)
   end
+
+  def listed_grades
+    listed_grades = []
+    listed_subjects.each do |subj|
+      subj.grades.each { |grade| listed_grades << grade }
+    end
+    listed_grades
+  end
 end

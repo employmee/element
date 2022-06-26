@@ -1,0 +1,21 @@
+.info {
+  background-color: $white;
+  border-radius: 16px;
+  width: 100%;
+  position: relative;
+  padding: 20px 30px;
+  margin-bottom: 2rem;
+
+  .about {
+    position: absolute;
+    margin-left: 50px;
+    margin-top: -32px;
+    left: 0;
+  }
+  .classes {
+    position: absolute;
+    right: 0;
+    margin-top: -32px;
+    margin-right: 50px;
+  }
+}

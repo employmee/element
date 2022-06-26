@@ -13,32 +13,38 @@ export default class extends Controller {
     console.log("hello from availability_controller!")
   }
 
-  displayScheduleForm() {
+  displayScheduleForm(event) {
+    event.preventDefault();
     const form = document.getElementById("overlay-left");
     form.style.display = "block";
   }
 
-  hideScheduleForm() {
+  hideScheduleForm(event) {
+    event.preventDefault();
     const form = document.getElementById("overlay-left");
     form.style.display = "none";
   }
-  hideAvailForm() {
+  hideAvailForm(event) {
+    event.preventDefault();
     const form = document.getElementById("overlay-right");
     form.style.display = "none";
   }
 
-  displayAvailForm() {
+  displayAvailForm(event) {
+    event.preventDefault();
     const form = document.getElementById("overlay-right");
     form.style.display = "block";
   }
 
-  deleteMode() {
+  deleteMode(event) {
+    event.preventDefault();
     let deleteBtn = this.deleteBtnTarget;
     const confirmBtn = this.confirmBtnTarget;
     confirmBtn.style.display = "block";
     deleteBtn.outerHTML = `<button data-availability-target="deleteMode" data-action="click->availability#HideDeleteMode" class="btn-outline-red mx-2">delete mode</button>`
   }
-  HideDeleteMode() {
+  HideDeleteMode(event) {
+    event.preventDefault();
     let deleteMode = this.deleteModeTarget;
     const confirmBtn = this.confirmBtnTarget;
     confirmBtn.style.display = "none";
@@ -50,6 +56,7 @@ export default class extends Controller {
   }
 
   highlightSlot(event) {
+    event.preventDefault();
     const confirmBtn = this.confirmBtnTarget;
     // Only highlight if in delete mode
     if (confirmBtn.style.display === "block") {

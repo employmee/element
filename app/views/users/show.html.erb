@@ -1,1 +1,71 @@
-<h1>hello</h1>
+<%# Banner %>
+<div class="teacher-banner center mb-5">
+  <div class="banner-avatar">
+    <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-extra-large" %>
+  </div>
+  <h1 class="banner-text-center"><%= @user.first_name %> <%= @user.last_name %></h1>
+</div>
+
+<div class="container" data-controller="calendar">
+  <div class="info">
+    <div class="about"><h5>About</h5></div>
+    <div>hello</div>
+  </div>
+
+  <div class="info">
+    <div class="classes"><h5>Classes offered</h5></div>
+    <div>yoyoyo</div>
+  </div>
+
+  <%# Book a slot %>
+  <div>
+    <h4 class="text-wine ms-5 mb-3">Book a class now</h4>
+    <%# Calendar %>
+    <div class="calendar-container">
+      <% if @availability_slot %>
+        <%= week_calendar(events: @availability_slot, end_attribute: :end_time) do |date, availabilities| %>
+          <%= date %>
+          <% availabilities.each do |availability| %>
+            <% unless availability.blocker %>
+              <div class="available"
+              data-action="click->calendar#displayBookForm"
+              data-calendar-target="time"
+              id="<%= availability.start_time.strftime("%Y-%m-%d") %>|<%= availability.id %>">
+                <%= availability.time unless availability.multi_days? %>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% else %>
+        <%= week_calendar do |date| %>
+          <%= date %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+   <div id="overlay-right">
+    <form class="sched-form" action="/bookings" method="post">
+      <h4 class="center mt-3 mb-3">Book a class</h4>
+
+      Selected slot:
+      <div class="mb-3">
+        <div data-calendar-target="selectedSlot"></div>
+        <div data-calendar-target="timeInput"></div>
+      </div>
+
+      <%# start and end time for each day %>
+      <label for="grade">Choose a class:</label>
+      <select name="grade" id="grades">
+        <% @user.listed_grades.each do |grade| %>
+          <option value="<%= grade.id %>"><%= grade.subject.name %>: <%= grade.name %></option>
+        <% end %>
+      </select>
+
+      <div class="d-flex justify-content-between align-items-center mt-4">
+        <button class='btn btn-info' style="color:white;" data-action="click->availability#hideBookForm">Close</button>
+        <input type="submit" value="Confirm" class='btn btn-primary' style="color:white;">
+      </div>
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    </form>
+  </div>
+</div>
