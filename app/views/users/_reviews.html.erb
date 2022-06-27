@@ -17,7 +17,7 @@
     <% end %>
   </div>
   <div class="col-4">
-    <% if current_user && current_user.had_class_with_teacher?(@user).present? %>
+    <% if current_user && current_user.had_class_with_teacher?(@user) && current_user.havent_reviewed_teacher?(@user) %>
       <%= simple_form_for([@user, @review ], remote: true) do |f| %>
         <%= f.input :content %>
         <%= f.input :rating %>
