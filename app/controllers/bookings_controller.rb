@@ -32,6 +32,7 @@ class BookingsController < ApplicationController
 
     # If booking is cancelled, change the availability non-blocker
     booking.availability.blocker = false if params['status'] == "cancelled"
+    booking.availability.save
   end
 
   def index

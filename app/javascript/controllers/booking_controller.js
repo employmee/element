@@ -28,6 +28,7 @@ export default class extends Controller {
         .then((data) => {
           console.log(data);
         });
+    location.reload();
   }
 
   updateBookingConfirm(event) {
@@ -46,5 +47,6 @@ export default class extends Controller {
         .then((data) => {
           console.log(data);
         });
+    location.reload();
   }
 }
