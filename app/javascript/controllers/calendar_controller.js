@@ -30,6 +30,4 @@ export default class extends Controller {
     this.timeInputTarget.innerHTML = `<input type="text" id="availability" name="availability" value="${event.target.id.split("|")[1]}">`
     this.timeInputTarget.style.display = "none"
   }
-
-
 }

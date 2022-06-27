@@ -53,7 +53,7 @@ class User < ApplicationRecord
     if role == "Teacher"
       availabilities.each do |avail|
         if avail.bookings.present?
-          bookings.each { |booking| bookings.push << booking}
+          avail.bookings.each { |booking| bookings.push << booking }
         end
       end
     end
