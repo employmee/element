@@ -26,7 +26,7 @@ export default class extends Controller {
     const date = event.target.id.split("|")[0]
     console.log(event)
     //`<input data-calendar-target="selectedSlot" type="text" name="timeslot" value="admin" style="pointer-events:none;">`
-    this.selectedSlotTarget.outerHTML = `${date} ${time}`;
+    this.selectedSlotTarget.innerHTML = `${date} ${time}`;
     this.timeInputTarget.innerHTML = `<input type="text" id="availability" name="availability" value="${event.target.id.split("|")[1]}">`
     this.timeInputTarget.style.display = "none"
   }

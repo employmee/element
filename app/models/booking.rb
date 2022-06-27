@@ -9,6 +9,6 @@ class Booking < ApplicationRecord
 
   def check_and_turn_completed
     self.status = "completed" if (self.status == "confirmed" && Time.now > availability.end_time)
-    self.save!
+    self.save
   end
 end
