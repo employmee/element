@@ -1,6 +1,6 @@
 class Availability < ApplicationRecord
   belongs_to :user
-  has_one :booking
+  has_many :bookings
 
   validates :start_time, :end_time, presence: true, format: { with: /\d+:[03]0:\d+/, message: "only allows minute to be 00 or 30" }
   validates :start_time, uniqueness: { scope: :user_id, message: "An availability for this time has already been entered" }
@@ -11,6 +11,10 @@ class Availability < ApplicationRecord
     unless end_time.nil? || start_time.nil?
       errors.add(:end_time, "cannot be before start time") if end_time < start_time
     end
+  end
+
+  def pending_booking
+    bookings.find(status: "pending")
   end
 
   def time

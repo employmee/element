@@ -38,13 +38,10 @@ class User < ApplicationRecord
   end
 
   def had_class_with_teacher?(teacher)
-    # bookings.find { |booking|
-    #   (teacher.subjects.map(&:id).include? booking.subject_id) && (Time.now > booking.end_time) && (booking.status == "confirmed")
-    # }
     bookings.find { |booking| booking.availability.user == teacher && (Time.now > booking.availability.end_time) && (booking.status == "confirmed") }
   end
 
   def teacher_bookings
-    availabilities.where(blocker: true).map(&:booking) if role == "Teacher"
+    availabilities.map(&:bookings) if role == "Teacher"
   end
 end

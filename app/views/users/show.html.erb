@@ -8,12 +8,12 @@
 
 <div class="container" data-controller="calendar">
   <div class="info">
-    <div class="about"><h5>About</h5></div>
+    <div class="about"><h3>About</h3></div>
     <div class="text-light"> <%= @user.description %></div>
   </div>
 
   <div class="info">
-    <div class="classes"><h5>Classes offered</h5></div>
+    <div class="classes"><h3>Classes offered</h3></div>
     <div class="text-light">
       <% @user.listed_subjects.each do |subj| %>
         <p class="fw-500 mb-1"><%= subj.name %></p>
@@ -24,7 +24,7 @@
 
   <%# Book a slot %>
   <div>
-    <h4 class="text-wine ms-5 mb-3">Book a class now</h4>
+    <h3 class="text-wine ms-5 mb-3">Book a class now</h3>
     <%# Calendar %>
     <div class="calendar-container">
       <% if @availability_slot %>
@@ -74,5 +74,6 @@
     </form>
   </div>
 
+  <hr>
   <%= render 'users/reviews' %>
 </div>
