@@ -43,4 +43,8 @@ class User < ApplicationRecord
     # }
     bookings.find { |booking| booking.availability.user == teacher && (Time.now > booking.availability.end_time) && (booking.status == "confirmed") }
   end
+
+  def teacher_bookings
+    availabilities.where(blocker: true).map(&:booking) if role == "Teacher"
+  end
 end

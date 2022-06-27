@@ -23,6 +23,12 @@ class BookingsController < ApplicationController
 
   end
 
+  def index
+    @bookings = current_user.teacher_bookings if current_user.role == "Teacher"
+    @bookings = current_user.bookings if current_user.role == "Student"
+
+  end
+
   private
 
   def select_booking
