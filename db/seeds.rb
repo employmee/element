@@ -108,9 +108,10 @@ users.each do |user|
     newReview = Review.new(
       content: contents.sample,
       rating: (1..5).to_a.sample,
-      user: user
+      user: user,
+      student_id: User.students.sample
     )
-    newReview.save!
+    newReview.save
   end
 end
 

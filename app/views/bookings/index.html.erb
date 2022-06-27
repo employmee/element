@@ -15,7 +15,7 @@
         <div class="tab-pane fade show active" id="v-pills-pending" role="tabpanel" aria-labelledby="v-pills-pending-tab"
         data-controller="booking">
           <h3 class="center">Pending bookings</h3>
-          <% if @pending %>
+          <% if @pending.present? %>
             <% @pending.each do |pending| %>
               <div class="booking-card">
                 <p><span class="fw-500">Class time:</span> <%= pending.availability.date %>, <%= pending.availability.time %></p>

@@ -12,8 +12,12 @@
           <div class="teacher-card d-flex align-content-around flex-wrap">
             <div class="d-flex justify-content-start align-items-center">
               <div>
-                <%# !!NOTE!! To replace with user's avatar %>
-                <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-large" %>
+                <% if (teacher.photo.key).blank? %>
+                  <%= image_tag "anonavatar.png", class: "avatar-large" %>
+                <% else %>
+                  <%= cl_image_tag(teacher.photo.key, transformation: [{ crop: "thumb", gravity: "face"}], class: "avatar-large") %>
+                <% end %>
+                <!--<%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-large" %>-->
               </div>
               <div class="teacher-header ms-3">
                 <%# !!NOTE!! To make sure either teacher has to add name, or to use name from email if name not added yet %>
