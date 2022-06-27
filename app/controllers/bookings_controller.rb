@@ -27,6 +27,11 @@ class BookingsController < ApplicationController
     @bookings = current_user.teacher_bookings if current_user.role == "Teacher"
     @bookings = current_user.bookings if current_user.role == "Student"
     @bookings.each { |booking| booking.check_and_turn_completed }
+
+    @pending = @bookings.select{ |booking| booking.status == "pending"}
+    @confirmed = @bookings.select{ |booking| booking.status == "confirmed"}
+    @completed = @bookings.select{ |booking| booking.status == "completed"}
+    @cancelled = @bookings.select{ |booking| booking.status == "cancelled"}
   end
 
   private

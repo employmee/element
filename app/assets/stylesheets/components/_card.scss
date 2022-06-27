@@ -25,3 +25,12 @@
     font-size: 14px;
   }
 }
+.booking-card {
+  background-color: $white;
+  padding: 20px 30px;
+  margin-top: 1.5rem;
+  border-radius: 6px;
+  p {
+    margin-bottom: 0.5rem;
+  }
+}

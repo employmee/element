@@ -11,34 +11,54 @@
       </div>
 
       <%# Tab contents %>
-      <div class="tab-content mx-auto" id="v-pills-tabContent">
+      <div class="tab-content center-div" id="v-pills-tabContent">
         <div class="tab-pane fade show active" id="v-pills-pending" role="tabpanel" aria-labelledby="v-pills-pending-tab">
-          <h3>Pending bookings</h3>
-          <% if @bookings.select{ |booking| booking.status == "pending"} %>
+          <h3 class="center">Pending bookings</h3>
+          <% if @pending %>
+            <% @pending.each do |pending| %>
+              <div class="booking-card">
+                <p><span class="fw-500">Class time:</span> <%= pending.availability.date %>, <%= pending.availability.time %></p>
+                <% if current_user.role == "Student" %>
+                  <p><span class="fw-500">Teacher:</span> <%= link_to "#{pending.availability.user.first_name} #{pending.availability.user.last_name}", user_path(pending.availability.user) %></p>
+                <% else %>
+                  <p><span class="fw-500">Student:</span> <%= pending.user.first_name %> <%= pending.user.last_name %></p>
+                <% end %>
+                <p><span class="fw-500">Class details:</span><br>
+                  <%= pending.grade.subject.name %> - <%= pending.grade.name %> - $<%= pending.grade.hourly_rate.round(2) %>/h
+                </p>
 
+                <% if current_user.role == "Student" %>
+                  <button id="booking <%= pending.id %>" class='btn btn-danger mt-2' style="color:white;border-radius: 6px;" data-action="click->booking#updateBookingCancel">Cancel</button>
+                <% else %>
+                  <button id="booking <%= pending.id %>" class='btn btn-danger mt-2' style="color:white;border-radius: 6px;" data-action="click->booking#updateBookingCancel">Cancel</button>
+                  <button id="booking <%= pending.id %>" class='btn btn-primary mt-2' style="color:white;float:right;border-radius: 6px;" data-action="click->booking#updateBookingConfirm">Accept</button>
+                <% end %>
+
+              </div>
+            <% end %>
           <% else %>
             You have no pending bookings
           <% end %>
         </div>
         <div class="tab-pane fade" id="v-pills-upcoming" role="tabpanel" aria-labelledby="v-pills-upcoming-tab">
-          <h3>Upcoming bookings</h3>
-          <% if @bookings.select{ |booking| booking.status == "confirmed"} %>
+          <h3 class="center">Upcoming bookings</h3>
+          <% if @confirmed.present? %>
 
           <% else %>
-            You have no upcoming bookings
+            <p>You have no upcoming bookings</p>
           <% end %>
         </div>
         <div class="tab-pane fade" id="v-pills-completed" role="tabpanel" aria-labelledby="v-pills-completed-tab">
-          <h3>Completed bookings</h3>
-          <% if @bookings.select{ |booking| booking.status == "completed"} %>
+          <h3 class="center">Completed bookings</h3>
+          <% if @completed.present? %>
 
           <% else %>
             You have no confirmed bookings
           <% end %>
         </div>
         <div class="tab-pane fade" id="v-pills-cancelled" role="tabpanel" aria-labelledby="v-pills-cancelled-tab">
-          <h3>Cancelled bookings</h3>
-          <% if @bookings.select{ |booking| booking.status == "cancelled"} %>
+          <h3 class="center">Cancelled bookings</h3>
+          <% if @cancelled.present? %>
 
           <% else %>
             You have no cancelled bookings

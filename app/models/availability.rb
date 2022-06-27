@@ -17,6 +17,10 @@ class Availability < ApplicationRecord
     bookings.find(status: "pending")
   end
 
+  def date
+    start_time.strftime('%A, %d %b %y')
+  end
+
   def time
     # "#{start_time.strftime('%I:%M %p')} - #{end_time.strftime('%I:%M %p')}"
     "#{start_time.strftime('%H:%M')} - #{end_time.strftime('%H:%M')}"
