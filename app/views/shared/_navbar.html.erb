@@ -24,7 +24,12 @@
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle p-0 mx-2" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle" %>
+                <!--<%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle" %>-->
+                <% if current_user.photo.attached? %>
+                  <%= cl_image_tag(current_user.photo.key, transformation: [{ crop: "thumb", gravity: "face"}], class: "avatar dropdown-toggle") %>
+                <% else %>
+                  <%= image_tag "anonavatar.png", class: "avatar dropdown-toggle" %>
+                <% end %>
               </a>
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                 <li><a class="dropdown-item" href="#">Action</a></li>
@@ -38,7 +43,12 @@
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle p-0 mx-2" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle" %>
+                <!--<%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle" %>-->
+                <% if current_user.photo.attached? %>
+                  <%= cl_image_tag(current_user.photo.key, transformation: [{ crop: "thumb", gravity: "face"}], class: "avatar dropdown-toggle") %>
+                <% else %>
+                  <%= image_tag "anonavatar.png", class: "avatar dropdown-toggle" %>
+                <% end %>
               </a>
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                 <li><a class="dropdown-item" href="#">Action</a></li>

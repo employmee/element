@@ -1,7 +1,11 @@
 <%# Banner %>
 <div class="teacher-banner center mb-5">
   <div class="banner-avatar">
-    <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-extra-large" %>
+    <% if (@user.photo.key).blank? %>
+      <%= image_tag "anonavatar.png", class: "avatar-extra-large" %>
+    <% else %>
+      <%= cl_image_tag(@user.photo.key, transformation: [{ crop: "thumb", gravity: "face"}], class: "avatar-extra-large") %>
+    <% end %>
   </div>
   <h1 class="banner-text-center"><%= @user.first_name %> <%= @user.last_name %></h1>
 </div>
