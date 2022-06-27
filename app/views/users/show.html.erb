@@ -14,7 +14,12 @@
 
   <div class="info">
     <div class="classes"><h5>Classes offered</h5></div>
-    <div>yoyoyo</div>
+    <div class="text-light">
+      <% @user.listed_subjects.each do |subj| %>
+        <p class="fw-500 mb-1"><%= subj.name %></p>
+        <p><span class="fw-500">Teaches grades:</span> <%= subj.grades_and_rate_formatted %></p>
+      <% end %>
+  </div>
   </div>
 
   <%# Book a slot %>
@@ -68,4 +73,6 @@
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
     </form>
   </div>
+
+  <%= render 'users/reviews' %>
 </div>

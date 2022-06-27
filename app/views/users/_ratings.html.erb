@@ -1,23 +1,21 @@
-<div class="star-ratings mb-0">
-  <% if teacher.reviews.count == 0 %>
-    <% (5).times do %>
-    <span><i class="fa-solid fa-star" style="color:grey"></i></i></span>
-    <% end %>
-    (0)
-  <% else %>
-    <% sum_reviews = 0 %>
-    <% total_reviews = 0 %>
-    <% teacher.reviews.each do |review| %>
-      <% sum_reviews += review.rating %>
-      <% total_reviews += 1 %>
-    <% end %>
-    <% rating = (sum_reviews.to_f / total_reviews).round %>
-    <% rating.times do %>
-      <span><i class="fa-solid fa-star" style="color:gold"></i></span>
-    <% end %>
-    <% (5-rating).times do %>
-      <span><i class="fa-solid fa-star" style="color:grey"></i></i></span>
-    <% end %>
-    (<%= teacher.reviews.count %>)
+<% if teacher.reviews.count == 0 %>
+  <% (5).times do %>
+  <span><i class="fa-solid fa-star" style="color:grey"></i></i></span>
   <% end %>
-</div>
+  (0)
+<% else %>
+  <% sum_reviews = 0 %>
+  <% total_reviews = 0 %>
+  <% teacher.reviews.each do |review| %>
+    <% sum_reviews += review.rating %>
+    <% total_reviews += 1 %>
+  <% end %>
+  <% rating = (sum_reviews.to_f / total_reviews).round %>
+  <% rating.times do %>
+    <span><i class="fa-solid fa-star" style="color:gold"></i></span>
+  <% end %>
+  <% (5-rating).times do %>
+    <span><i class="fa-solid fa-star" style="color:grey"></i></i></span>
+  <% end %>
+  (<%= teacher.reviews.count %>)
+<% end %>

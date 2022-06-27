@@ -36,4 +36,11 @@ class User < ApplicationRecord
     end
     listed_grades
   end
+
+  def had_class_with_teacher?(teacher)
+    # bookings.find { |booking|
+    #   (teacher.subjects.map(&:id).include? booking.subject_id) && (Time.now > booking.end_time) && (booking.status == "confirmed")
+    # }
+    bookings.find { |booking| booking.availability.user == teacher && (Time.now > booking.availability.end_time) && (booking.status == "confirmed") }
+  end
 end

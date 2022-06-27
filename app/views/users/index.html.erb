@@ -19,7 +19,9 @@
                 <%# !!NOTE!! To make sure either teacher has to add name, or to use name from email if name not added yet %>
                 <h4><%= teacher.first_name %> <%= teacher.last_name %></h4>
                 <%# Stars section using calculation of review rating %>
-                <%= render 'users/ratings', teacher: teacher %>
+                <div class="star-ratings mb-0">
+                  <%= render 'users/ratings', teacher: teacher %>
+                </div>
                 <%# !!NOTE!! To update numbers with correct calculations %>
                 <span style="font-size:10px;margin:0px;">5 students | 20 lessons</span>
               </div>

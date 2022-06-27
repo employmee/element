@@ -9,4 +9,14 @@ class Subject < ApplicationRecord
     self.listed = grades.any? # verify that subject has grades in order to list.
     save
   end
+
+  def grades_and_rate_formatted
+    formatted = []
+    grades.order(:name).each do |grade|
+      grade_name = grade.name.gsub('-',' ')
+      grade_price = "#{grade_name} - $#{grade.hourly_rate.round(2)}/h"
+      formatted << grade_price
+    end
+    formatted.join(", ")
+  end
 end
