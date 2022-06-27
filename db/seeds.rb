@@ -26,7 +26,7 @@ puts "Creating Students..."
     phone_number: Faker::PhoneNumber.phone_number_with_country_code,
     password: "123123"
   )
-  new_student.save!
+  new_student.save
   # puts "1 down, #{num -= 1} more to go!"
 end
 # # Create Teacher users
@@ -43,16 +43,18 @@ puts "Creating Teachers..."
     password: "123123",
     experience: (1..10).to_a.sample
   )
-  new_teacher.save!
+  new_teacher.save
 end
 puts "Creating subjects..."
-25.times do
-  new_subject = Subject.new(
-    name: subjects.sample,
-    listed: true
-  )
-  new_subject.user = User.all.sample
-  new_subject.save!
+User.teachers.each do |teacher|
+  2.times do
+    new_subject = Subject.new(
+      name: subjects.sample,
+      listed: true
+    )
+    new_subject.user = User.teachers.sample
+    new_subject.save
+  end
 end
 
 puts "Creating Grades..."
@@ -64,28 +66,28 @@ Subject.all.each do |subj|
       description: Faker::Movies::HitchhikersGuideToTheGalaxy.quote
     )
     new_grade.subject = subj
-    new_grade.save!
+    new_grade.save
   end
 end
 
-puts "Creating Bookings..."
-students = User.all.where(role: 'Student')
-num = (1..10).to_a
-hours = (1..23).to_a
-# Each student have at least 1 booking
-students.each do |student|
-  num.sample.times do
-    starttime = Time.now.beginning_of_hour + num.sample.days
-    new_booking = Booking.new(
-      start_time: starttime,
-      end_time: starttime + 1.hours,
-      status: %w[pending confirmed cancelled completed].sample
-    )
-    new_booking.user = student
-    new_booking.grade = Grade.all.sample
-    new_booking.save!
-  end
-end
+# puts "Creating Bookings..."
+# students = User.all.where(role: 'Student')
+# num = (1..10).to_a
+# hours = (1..23).to_a
+# # Each student have at least 1 booking
+# students.each do |student|
+#   num.sample.times do
+#     starttime = Time.now.beginning_of_hour + num.sample.days
+#     new_booking = Booking.new(
+#       start_time: starttime,
+#       end_time: starttime + 1.hours,
+#       status: %w[pending confirmed cancelled completed].sample
+#     )
+#     new_booking.user = student
+#     new_booking.grade = Grade.all.sample
+#     new_booking.save!
+#   end
+# end
 # Seed for review400 - 405
 
 #Seed for availabilities

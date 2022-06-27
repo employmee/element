@@ -5,4 +5,9 @@ class Booking < ApplicationRecord
 
   STATUS = %w[pending confirmed cancelled completed]
   validates :status, inclusion: { in: STATUS }
+
+  def check_and_turn_completed
+    self.status = "completed" if (self.status == "confirmed" && Time.now > availability.end_time)
+    self.save!
+  end
 end

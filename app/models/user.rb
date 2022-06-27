@@ -16,6 +16,13 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :role, inclusion: ROLES
 
+  def self.students
+    User.where(role: "Student")
+  end
+  def self.teachers
+    User.where(role: "Teacher")
+  end
+
   def min_rate
     grades.map(&:hourly_rate).min.round(2)
   end
@@ -42,6 +49,14 @@ class User < ApplicationRecord
   end
 
   def teacher_bookings
-    availabilities.map(&:bookings) if role == "Teacher"
+    bookings = []
+    if role == "Teacher"
+      availabilities.each do |avail|
+        if avail.bookings.present?
+          bookings.each { |booking| bookings.push << booking}
+        end
+      end
+    end
+    bookings
   end
 end

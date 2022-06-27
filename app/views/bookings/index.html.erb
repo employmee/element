@@ -1,21 +1,52 @@
 <div class="container my-4">
-  <h3 class="center">Your bookings</h3>
-  <div class="d-flex align-items-start">
+  <% if @bookings.present? %>
+    <div class="d-flex align-items-start">
 
-    <%# Tab navigation %>
-    <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-      <button class="nav-link active" id="v-pills-pending-tab" data-bs-toggle="pill" data-bs-target="#v-pills-pending" type="button" role="tab" aria-controls="v-pills-pending" aria-selected="true">Pending</button>
-      <button class="nav-link" id="v-pills-upcoming-tab" data-bs-toggle="pill" data-bs-target="#v-pills-upcoming" type="button" role="tab" aria-controls="v-pills-upcoming" aria-selected="false">Upcoming</button>
-      <button class="nav-link" id="v-pills-completed-tab" data-bs-toggle="pill" data-bs-target="#v-pills-completed" type="button" role="tab" aria-controls="v-pills-completed" aria-selected="false">Completed</button>
-      <button class="nav-link" id="v-pills-cancelled-tab" data-bs-toggle="pill" data-bs-target="#v-pills-cancelled" type="button" role="tab" aria-controls="v-pills-cancelled" aria-selected="false">Cancelled</button>
-    </div>
+      <%# Tab navigation %>
+      <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <button class="nav-link active" id="v-pills-pending-tab" data-bs-toggle="pill" data-bs-target="#v-pills-pending" type="button" role="tab" aria-controls="v-pills-pending" aria-selected="true">Pending</button>
+        <button class="nav-link" id="v-pills-upcoming-tab" data-bs-toggle="pill" data-bs-target="#v-pills-upcoming" type="button" role="tab" aria-controls="v-pills-upcoming" aria-selected="false">Upcoming</button>
+        <button class="nav-link" id="v-pills-completed-tab" data-bs-toggle="pill" data-bs-target="#v-pills-completed" type="button" role="tab" aria-controls="v-pills-completed" aria-selected="false">Completed</button>
+        <button class="nav-link" id="v-pills-cancelled-tab" data-bs-toggle="pill" data-bs-target="#v-pills-cancelled" type="button" role="tab" aria-controls="v-pills-cancelled" aria-selected="false">Cancelled</button>
+      </div>
+      <%= raise %>
+      <%# Tab contents %>
+      <div class="tab-content mx-auto" id="v-pills-tabContent">
+        <div class="tab-pane fade show active" id="v-pills-pending" role="tabpanel" aria-labelledby="v-pills-pending-tab">
+          <h3>Pending bookings</h3>
+          <% if @bookings.select{ |booking| booking.status == "pending"} %>
 
-    <%# Tab contents %>
-    <div class="tab-content" id="v-pills-tabContent">
-      <div class="tab-pane fade show active" id="v-pills-pending" role="tabpanel" aria-labelledby="v-pills-pending-tab">...</div>
-      <div class="tab-pane fade" id="v-pills-upcoming" role="tabpanel" aria-labelledby="v-pills-upcoming-tab">...</div>
-      <div class="tab-pane fade" id="v-pills-completed" role="tabpanel" aria-labelledby="v-pills-completed-tab">...</div>
-      <div class="tab-pane fade" id="v-pills-cancelled" role="tabpanel" aria-labelledby="v-pills-cancelled-tab">...</div>
+          <% else %>
+            You have no pending bookings
+          <% end %>
+        </div>
+        <div class="tab-pane fade" id="v-pills-upcoming" role="tabpanel" aria-labelledby="v-pills-upcoming-tab">
+          <h3>Upcoming bookings</h3>
+          <% if @bookings.select{ |booking| booking.status == "confirmed"} %>
+
+          <% else %>
+            You have no upcoming bookings
+          <% end %>
+        </div>
+        <div class="tab-pane fade" id="v-pills-completed" role="tabpanel" aria-labelledby="v-pills-completed-tab">
+          <h3>Completed bookings</h3>
+          <% if @bookings.select{ |booking| booking.status == "completed"} %>
+
+          <% else %>
+            You have no confirmed bookings
+          <% end %>
+        </div>
+        <div class="tab-pane fade" id="v-pills-cancelled" role="tabpanel" aria-labelledby="v-pills-cancelled-tab">
+          <h3>Cancelled bookings</h3>
+          <% if @bookings.select{ |booking| booking.status == "cancelled"} %>
+
+          <% else %>
+            You have no cancelled bookings
+          <% end %>
+        </div>
+      </div>
     </div>
-  </div>
+  <% else %>
+    You have no bookings yet
+  <% end %>
 </div>
