@@ -12,7 +12,8 @@
 
       <%# Tab contents %>
       <div class="tab-content center-div" id="v-pills-tabContent">
-        <div class="tab-pane fade show active" id="v-pills-pending" role="tabpanel" aria-labelledby="v-pills-pending-tab">
+        <div class="tab-pane fade show active" id="v-pills-pending" role="tabpanel" aria-labelledby="v-pills-pending-tab"
+        data-controller="booking">
           <h3 class="center">Pending bookings</h3>
           <% if @pending %>
             <% @pending.each do |pending| %>
@@ -33,11 +34,10 @@
                   <button id="booking <%= pending.id %>" class='btn btn-danger mt-2' style="color:white;border-radius: 6px;" data-action="click->booking#updateBookingCancel">Cancel</button>
                   <button id="booking <%= pending.id %>" class='btn btn-primary mt-2' style="color:white;float:right;border-radius: 6px;" data-action="click->booking#updateBookingConfirm">Accept</button>
                 <% end %>
-
               </div>
             <% end %>
           <% else %>
-            You have no pending bookings
+            <p>You have no pending bookings</p>
           <% end %>
         </div>
         <div class="tab-pane fade" id="v-pills-upcoming" role="tabpanel" aria-labelledby="v-pills-upcoming-tab">
@@ -53,7 +53,7 @@
           <% if @completed.present? %>
 
           <% else %>
-            You have no confirmed bookings
+            <p>You have no confirmed bookings</p>
           <% end %>
         </div>
         <div class="tab-pane fade" id="v-pills-cancelled" role="tabpanel" aria-labelledby="v-pills-cancelled-tab">
@@ -61,7 +61,7 @@
           <% if @cancelled.present? %>
 
           <% else %>
-            You have no cancelled bookings
+            <p>You have no cancelled bookings</p>
           <% end %>
         </div>
       </div>
