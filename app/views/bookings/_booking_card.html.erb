@@ -1,0 +1,11 @@
+<div class="booking-card">
+  <p><span class="fw-500">Class time:</span> <%= booking.availability.date %>, <%= booking.availability.time %></p>
+  <% if current_user.role == "Student" %>
+    <p><span class="fw-500">Teacher:</span> <%= link_to "#{booking.availability.user.first_name} #{booking.availability.user.last_name}", user_path(booking.availability.user) %></p>
+  <% else %>
+    <p><span class="fw-500">Student:</span> <%= booking.user.first_name %> <%= booking.user.last_name %></p>
+  <% end %>
+  <p><span class="fw-500">Class details:</span><br>
+    <%= booking.grade.subject.name %> - <%= booking.grade.name %> - $<%= booking.grade.hourly_rate.round(2) %>/h
+  </p>
+</div>

@@ -14,9 +14,37 @@ export default class extends Controller {
 
   updateBookingCancel(event) {
     event.preventDefault();
+    const bookingId = event.target.id.split(" ")[1]
+    console.log(bookingId)
+    let formData = new FormData();
+      formData.append('id', bookingId);
+      formData.append('status', "cancelled");
+      fetch(`/bookings/${bookingId}`, {
+        method: "PUT",
+        headers: { Accept: "application/json", "X-CSRF-Token": csrfToken() },
+        body: formData,
+      })
+        .then((response) => console.log(response.json()))
+        .then((data) => {
+          console.log(data);
+        });
   }
 
   updateBookingConfirm(event) {
     event.preventDefault();
+    const bookingId = event.target.id.split(" ")[1]
+    console.log(bookingId)
+    let formData = new FormData();
+      formData.append('id', bookingId);
+      formData.append('status', "confirmed");
+      fetch(`/bookings/${bookingId}`, {
+        method: "PUT",
+        headers: { Accept: "application/json", "X-CSRF-Token": csrfToken() },
+        body: formData,
+      })
+        .then((response) => console.log(response.json()))
+        .then((data) => {
+          console.log(data);
+        });
   }
 }

@@ -23,15 +23,26 @@ class BookingsController < ApplicationController
 
   end
 
+  def update
+    params.permit(:id)
+    params.permit(:status)
+    booking = Booking.find(params['id'])
+    booking.update(status: params['status'])
+    booking.save
+
+    # If booking is cancelled, change the availability non-blocker
+    booking.availability.blocker = false if params['status'] == "cancelled"
+  end
+
   def index
     @bookings = current_user.teacher_bookings if current_user.role == "Teacher"
     @bookings = current_user.bookings if current_user.role == "Student"
     @bookings.each { |booking| booking.check_and_turn_completed }
 
-    @pending = @bookings.select{ |booking| booking.status == "pending"}
-    @confirmed = @bookings.select{ |booking| booking.status == "confirmed"}
-    @completed = @bookings.select{ |booking| booking.status == "completed"}
-    @cancelled = @bookings.select{ |booking| booking.status == "cancelled"}
+    @pending = @bookings.select { |booking| booking.status == "pending" }
+    @confirmed = @bookings.select { |booking| booking.status == "confirmed" }
+    @completed = @bookings.select { |booking| booking.status == "completed" }
+    @cancelled = @bookings.select { |booking| booking.status == "cancelled" }
   end
 
   private

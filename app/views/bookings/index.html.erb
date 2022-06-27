@@ -43,7 +43,9 @@
         <div class="tab-pane fade" id="v-pills-upcoming" role="tabpanel" aria-labelledby="v-pills-upcoming-tab">
           <h3 class="center">Upcoming bookings</h3>
           <% if @confirmed.present? %>
-
+            <% @confirmed.each do |booking| %>
+              <%= render 'bookings/booking_card', booking: booking %>
+            <% end %>
           <% else %>
             <p>You have no upcoming bookings</p>
           <% end %>
@@ -51,7 +53,9 @@
         <div class="tab-pane fade" id="v-pills-completed" role="tabpanel" aria-labelledby="v-pills-completed-tab">
           <h3 class="center">Completed bookings</h3>
           <% if @completed.present? %>
-
+            <% @completed.each do |booking| %>
+              <%= render 'bookings/booking_card', booking: booking %>
+            <% end %>
           <% else %>
             <p>You have no confirmed bookings</p>
           <% end %>
@@ -59,7 +63,9 @@
         <div class="tab-pane fade" id="v-pills-cancelled" role="tabpanel" aria-labelledby="v-pills-cancelled-tab">
           <h3 class="center">Cancelled bookings</h3>
           <% if @cancelled.present? %>
-
+            <% @cancelled.each do |booking| %>
+              <%= render 'bookings/booking_card', booking: booking %>
+            <% end %>
           <% else %>
             <p>You have no cancelled bookings</p>
           <% end %>
