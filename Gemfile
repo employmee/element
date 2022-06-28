@@ -36,6 +36,9 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 gem 'sortablejs-rails', '~> 1.10'
 gem "simple_calendar", "~> 2.4"
 gem 'flatpickr'
+gem 'pg_search'
+gem 'elasticsearch', "< 7.14" # to use a supported version of the Elasticsearch Ruby client
+gem 'searchkick', '~> 4.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false

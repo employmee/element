@@ -1,7 +1,15 @@
 <div class="container my-5">
   <%# Section for searching %>
   <div class="input-icons mb-4">
-    <i class="fa-solid fa-magnifying-glass icon" style="color:#544d40"></i><input class="search-bar">
+    <i class="fa-solid fa-magnifying-glass icon" style="color:#544d40"></i>
+    <%= form_tag users_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "search-bar",
+        placeholder: "Search"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
   </div>
 
   <%# Teacher cards %>
@@ -17,7 +25,6 @@
                 <% else %>
                   <%= cl_image_tag(teacher.photo.key, transformation: [{ crop: "thumb", gravity: "face"}], class: "avatar-large") %>
                 <% end %>
-                <!--<%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-large" %>-->
               </div>
               <div class="teacher-header ms-3">
                 <%# !!NOTE!! To make sure either teacher has to add name, or to use name from email if name not added yet %>
@@ -27,7 +34,7 @@
                   <%= render 'users/ratings', teacher: teacher %>
                 </div>
                 <%# !!NOTE!! To update numbers with correct calculations %>
-                <span style="font-size:10px;margin:0px;">5 students | 20 lessons</span>
+                <span style="font-size:10px;margin:0px;"> <%= teacher.unique_student_count %> students | <%= teacher.teacher_bookings.select{|booking|booking.status == "completed"}.count %> lessons</span>
               </div>
             </div>
 

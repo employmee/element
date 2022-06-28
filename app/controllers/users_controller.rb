@@ -4,9 +4,19 @@ class UsersController < ApplicationController
   def index
     @user = User.new
     # Select onl teachers with grades that have grades listed
-    @teachers = User.where(role: 'Teacher').select { |teacher| teacher.listed_subjects.present? }
-    #search_params if params["search"].present?
-    #filtered_results
+    if params[:query].present?
+      #@teachers = User.search_for_teacher(params[:query])
+      sql_query = " \
+      users.role = 'Teacher' AND subjects.listed = true AND \
+      (users.first_name ILIKE :query \
+        OR users.last_name ILIKE :query \
+        OR subjects.name ILIKE :query \
+        OR grades.name ILIKE :query) \
+      "
+      @teachers = User.joins(:subjects, :grades).where(sql_query, query: "%#{params[:query]}%").uniq
+    else
+      @teachers = User.listed_teachers
+    end
   end
 
   def show

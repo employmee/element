@@ -109,7 +109,7 @@ users.each do |user|
       content: contents.sample,
       rating: (1..5).to_a.sample,
       user: user,
-      student_id: User.students.sample
+      student_id: User.students.sample.id
     )
     newReview.save
   end

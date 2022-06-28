@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   ROLES = %w[Student Teacher]
+  NEIGHBOURHOODS = ['Ang Mo Kio', 'Bedok', 'Bishan', 'Boon Lay/Pioneer', 'Bukit Batok', 'Bukit Merah', 'Bukit Panjang', 'Bukit Timah', 'Central Water Catchment', 'Changi', 'Changi Bay', 'Choa Chu Kang', 'Clementi', 'Downtown Core', 'Geylang', 'Hougang', 'Jurong East', 'Jurong West', 'Kallang', 'Lim Chu Kang', 'Mandai', 'Marina East', 'Marina South', 'Marine Parade', 'Museum', 'Newton', 'North-Eastern Islands', 'Novena', 'Orchard', 'Outram', 'Pasir Ris', 'Paya Lebar', 'Punggol', 'Queenstown', 'River Valley', 'Rochor', 'Seletar', 'Sembawang', 'Sengkang', 'Serangoon', 'Simpang', 'Singapore River', 'Southern Islands', 'Straits View', 'Sungei Kadut', 'Tampines', 'Tanglin', 'Tengah', 'Toa Payoh', 'Tuas', 'Western Islands', 'Western Water Catchment', 'Woodlands', 'Yishun', 'Flexible', 'Boon Lay', 'Pioneer']
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -15,12 +16,34 @@ class User < ApplicationRecord
 
   validates :email, presence: true
   validates :role, inclusion: ROLES
+  validates :location, inclusion: NEIGHBOURHOODS
+
+  # searchkick
+  # include PgSearch::Model
+  # pg_search_scope :search_for_teacher,
+  #   against: [ :location, :first_name, :last_name ],
+  #   associated_against: {
+  #     subects: [:name],
+  #     grades: [:name]
+  #   },
+  #   using: {
+  #     tsearch: { prefix: true } # <-- now `superman batm` will return something!
+  #   }
 
   def self.students
     User.where(role: "Student")
   end
+
   def self.teachers
     User.where(role: "Teacher")
+  end
+
+  def self.listed_teachers
+    User.where(role: 'Teacher').select { |teacher| teacher.listed_subjects.present? }
+  end
+
+  def name_before_email
+    email.split('@')[0]
   end
 
   def min_rate
@@ -62,5 +85,9 @@ class User < ApplicationRecord
       end
     end
     bookings
+  end
+
+  def unique_student_count
+    teacher_bookings.select { |booking| booking.status == "completed" }.map { |booking| booking.user}.uniq.count
   end
 end
