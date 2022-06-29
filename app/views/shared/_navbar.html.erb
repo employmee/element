@@ -16,7 +16,7 @@
             <li class="nav-item mx-1 active">
               <%= link_to "My Subjects", subjects_path, class: "nav-link" %>
             </li>
-            <li class="nav-item mx-1 active">
+            <li class="nav-item mx-1">
               <%= link_to "My Schedule", schedules_path, class: "nav-link" %>
             </li>
             <li class="nav-item mx-1">
@@ -59,7 +59,10 @@
           <% end %>
 
         <% else %>
-          <li class="nav-item">
+          <li class="nav-item mx-1">
+            <%= link_to "Signup", new_user_registration_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item mx-1">
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>
           </li>
         <% end %>

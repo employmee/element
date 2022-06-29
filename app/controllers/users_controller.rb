@@ -10,6 +10,7 @@ class UsersController < ApplicationController
       users.role = 'Teacher' AND subjects.listed = true AND \
       (users.first_name ILIKE :query \
         OR users.last_name ILIKE :query \
+        OR users.location ILIKE :query \
         OR subjects.name ILIKE :query \
         OR grades.name ILIKE :query) \
       "
