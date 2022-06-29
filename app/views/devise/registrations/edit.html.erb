@@ -12,7 +12,7 @@
 
         <% if current_user.role ==  "Teacher" %>
           <%= f.input :location, required: true, collection: User::NEIGHBOURHOODS  %>
-          <%= f.input :experience, required: true %>
+          <%= f.input :experience, required: true, placeholder: "e.g 2 years" %>
           <%= f.input :description, required: true %>
         <% end %>
       <hr>

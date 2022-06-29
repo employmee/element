@@ -39,7 +39,7 @@ class User < ApplicationRecord
   end
 
   def self.listed_teachers
-    User.where(role: 'Teacher').select { |teacher| teacher.listed_subjects.present? }
+    User.where(role: 'Teacher').select { |teacher| teacher.listed_subjects.present? && teacher.first_name.present? }
   end
 
   def name_before_email
