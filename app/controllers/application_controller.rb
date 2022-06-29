@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
       if current_user.first_name.present?
         subjects_path
       else
-        edit_user_registration_path
+        edit_user_registration_path(anchor: 'edit-profile')
       end
     else
       "/"
