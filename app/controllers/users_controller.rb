@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    if (@user.first_name.nil? || @user.listed_subjects.empty) && current_user != @user
+    if (@user.first_name.nil? || @user.listed_subjects.empty?) && current_user != @user
       redirect_to users_path
     else
       @booking = Booking.new
