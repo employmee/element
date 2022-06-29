@@ -14,7 +14,9 @@
   <div class="container" data-controller="calendar">
     <div class="info">
       <div class="about"><h3>About</h3></div>
-      <div class="text-light"> <%= @user.description %></div>
+      <div class="text-light mb-1"><span class="fw-500 mb-1">Description:</span> <%= @user.description %></div>
+      <div class="text-light mb-1"><span class="fw-500 mb-1">Teaching Experience:</span> <%= @user.experience %> years</div>
+      <div class="text-light"><span class="fw-500 mb-1">Class Location:</span> <%= @user.location %></div>
     </div>
 
     <div class="info">
