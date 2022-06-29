@@ -16,7 +16,7 @@ class User < ApplicationRecord
 
   validates :email, presence: true
   validates :role, inclusion: ROLES
-  validates :location, inclusion: NEIGHBOURHOODS
+  #validates :location, inclusion: NEIGHBOURHOODS, presence: false
 
   # searchkick
   # include PgSearch::Model
