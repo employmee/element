@@ -13,7 +13,8 @@ class BookingsController < ApplicationController
         availability.blocker = true
         availability.save!
 
-        redirect_to booking_path(@booking)
+        # redirect_to booking_path(@booking)
+        redirect_to bookings_path
       else
         start_date = params.fetch(:start_date, Date.today).to_date
         @availability_slot = Availability.where(start_time: start_date.beginning_of_week..start_date.end_of_week)
