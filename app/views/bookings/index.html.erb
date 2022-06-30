@@ -20,9 +20,9 @@
               <div class="booking-card">
                 <p><span class="fw-500">Class time:</span> <%= pending.availability.date %>, <%= pending.availability.time %></p>
                 <% if current_user.role == "Student" %>
-                  <p><span class="fw-500">Teacher:</span> <%= link_to "#{pending.availability.user.first_name} #{pending.availability.user.last_name}", user_path(pending.availability.user) %></p>
+                  <p><span class="fw-500">Teacher:</span><%= pending.availability.user.email %>, <%= link_to "#{pending.availability.user.first_name} #{pending.availability.user.last_name}", user_path(pending.availability.user) %></p>
                 <% else %>
-                  <p><span class="fw-500">Student:</span> <%= pending.user.first_name %> <%= pending.user.last_name %></p>
+                  <p><span class="fw-500">Student:</span><%= pending.user.email %>, <%= pending.user.first_name %> <%= pending.user.last_name %></p>
                 <% end %>
                 <p><span class="fw-500">Class details:</span><br>
                   <%= pending.grade.subject.name %> - <%= pending.grade.name %> - $<%= pending.grade.hourly_rate.round(2) %>/h
