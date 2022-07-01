@@ -1,5 +1,7 @@
 class SchedulesController < ApplicationController
   def index
+    # Destroy availabilities that have passed
+    Availability.destroy_passes_availabilities
     # parameters for calendar
     start_date = params.fetch(:start_date, Date.today).to_date
     user_id = current_user.id

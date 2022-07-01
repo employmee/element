@@ -7,6 +7,10 @@ class Availability < ApplicationRecord
   validate :end_date_after_start_date
   default_scope -> { order(:start_time) }
 
+  def self.destroy_passes_availabilities
+    Availability.all.select { |a| a.bookings.empty? && Time.now > a.end_time }.destroy_all
+  end
+
   def end_date_after_start_date
     unless end_time.nil? || start_time.nil?
       errors.add(:end_time, "cannot be before start time") if end_time < start_time
