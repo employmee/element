@@ -8,7 +8,7 @@ class Availability < ApplicationRecord
   default_scope -> { order(:start_time) }
 
   def self.destroy_passes_availabilities
-    Availability.all.select { |a| a.bookings.empty? && Time.now > a.end_time }.destroy_all
+    Availability.all.select { |a| a.bookings.empty? && Time.now > a.end_time }.each(&:destroy)
   end
 
   def end_date_after_start_date

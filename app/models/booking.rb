@@ -13,6 +13,6 @@ class Booking < ApplicationRecord
   end
 
   def self.destroy_passed_pending_bookings
-    Booking.all.select { |booking| booking.status == "pending" && Time.now > booking.availability.end_time }.destroy_all
+    Booking.all.select { |booking| booking.status == "pending" && Time.now > booking.availability.end_time }.each(&:destroy)
   end
 end
