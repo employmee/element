@@ -3,7 +3,7 @@ class Subject < ApplicationRecord
 
   belongs_to :user
   has_many :grades, dependent: :destroy
-  validates :name, presence: true, inclusion: { in: SUBJECTS }, uniqueness: { scope: :user }
+  #validates :name, presence: true, inclusion: { in: SUBJECTS }, uniqueness: { scope: :user }
 
   def list!
     self.listed = grades.any? # verify that subject has grades in order to list.
