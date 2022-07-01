@@ -72,7 +72,7 @@ class User < ApplicationRecord
   end
 
   def havent_reviewed_teacher?(teacher)
-    teacher.reviews.where(student_id: id).nil?
+    teacher.reviews.where(student_id: id).empty?
   end
 
   def teacher_bookings
