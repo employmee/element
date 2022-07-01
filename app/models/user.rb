@@ -68,7 +68,7 @@ class User < ApplicationRecord
   end
 
   def had_class_with_teacher?(teacher)
-    bookings.find { |booking| booking.availability.user == teacher && (booking.status == "completed") }.present? if role == "Student"
+    bookings.find { |booking| booking.availability.user == teacher && (booking.status == "completed") }.present?
   end
 
   def havent_reviewed_teacher?(teacher)
