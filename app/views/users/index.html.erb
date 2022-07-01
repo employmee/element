@@ -20,7 +20,7 @@
             <div class="d-flex justify-content-start align-items-center">
               <div>
                 <% if (teacher.photo.key).blank? %>
-                  <%= image_tag "anonavatar.png", class: "avatar-large" %>
+                  <%= image_tag "anonavatar.png", class: "avatar-70" %>
                 <% else %>
                   <%= cl_image_tag(teacher.photo.key, transformation: [{ crop: "thumb", gravity: "face"}], class: "avatar-large") %>
                 <% end %>
