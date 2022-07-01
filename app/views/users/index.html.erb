@@ -22,7 +22,7 @@
                 <% if (teacher.photo.key).blank? %>
                   <%= image_tag "anonavatar.png", class: "avatar-70" %>
                 <% else %>
-                  <%= cl_image_tag(teacher.photo.key, transformation: [{ crop: "thumb", gravity: "face"}], class: "avatar-large") %>
+                  <%= cl_image_tag(teacher.photo.key, transformation: [{ crop: "thumb", gravity: "face"}], class: "avatar-70") %>
                 <% end %>
               </div>
               <div class="teacher-header ms-3">
