@@ -41,6 +41,7 @@ class BookingsController < ApplicationController
   end
 
   def index
+    Booking.destroy_passed_pending_bookings
     @bookings = current_user.teacher_bookings if current_user.role == "Teacher"
     @bookings = current_user.bookings if current_user.role == "Student"
     @bookings.each { |booking| booking.check_and_turn_completed }
