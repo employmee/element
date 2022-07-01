@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     if current_user.role == "Teacher"
       if current_user.first_name.present?
-        subjects_path
+        bookings_path
       else
         edit_user_registration_path(anchor: 'edit-profile')
       end
