@@ -53,7 +53,7 @@
         <div class="tab-pane fade" id="v-pills-completed" role="tabpanel" aria-labelledby="v-pills-completed-tab">
           <h3 class="center">Completed bookings</h3>
           <% if @completed.present? %>
-            <% @completed.each do |booking| %>
+            <% @completed.sort_by { |booking| booking.availability.start_time }.reverse.each do |booking| %>
               <%= render 'bookings/booking_card', booking: booking %>
             <% end %>
           <% else %>
