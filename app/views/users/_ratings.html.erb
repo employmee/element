@@ -17,5 +17,5 @@
   <% (5-rating).times do %>
     <span><i class="fa-solid fa-star" style="color:grey"></i></i></span>
   <% end %>
-  (<%= teacher.reviews.count %>)
+  <%= (sum_reviews.to_f / total_reviews).round(1) %> (<%= teacher.reviews.count %>)
 <% end %>
