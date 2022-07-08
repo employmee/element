@@ -1,5 +1,5 @@
 class Subject < ApplicationRecord
-  SUBJECTS = ['A.Math', 'E.Math', 'English', 'Chinese', 'Malay', 'Tamil', 'Geography', 'History', 'Social Studies', 'Physics', 'Biology', 'Chemistry']
+  SUBJECTS = ['A.Math', 'E.Math', 'English', 'Literature','Chinese', 'Malay', 'Tamil', 'Geography', 'History', 'Social Studies', 'Physics', 'Biology', 'Chemistry']
 
   belongs_to :user
   has_many :grades, dependent: :destroy
